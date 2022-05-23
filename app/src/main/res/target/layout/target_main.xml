@@ -32,13 +32,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:mcv_showOtherDates="all"
+            app:mcv_weekDayLabels="@array/custom_MyWeekdays"
+            app:layout_behavior="@string/calendar_behavior"
             />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Tg_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            app:layout_behavior="@string/calendar_scolling_behavior"/>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
