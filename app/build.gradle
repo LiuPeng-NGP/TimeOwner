@@ -28,6 +28,34 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    sourceSets{
+        main{
+            res.srcDirs=[
+                    'src/main/res/concentration/values',
+                    'src/main/res/concentration/layout',
+                    'src/main/res/concentration',
+                    'src/main/res/coursetable/values',
+                    'src/main/res/coursetable/layout',
+                    'src/main/res/coursetable',
+                    'src/main/res/event/values',
+                    'src/main/res/event/layout',
+                    'src/main/res/event',
+                    'src/main/res/habit/values',
+                    'src/main/res/habit/layout',
+                    'src/main/res/habit',
+                    'src/main/res/information/values',
+                    'src/main/res/information/layout',
+                    'src/main/res/information',
+                    'src/main/res/target/values',
+                    'src/main/res/target/layout',
+                    'src/main/res/target',
+                    'src/main/res/layout',//必须要有
+                    'src//main/res',//必须要有，倒数两个顺序必须是这样子，不能乱
+            ]
+        }
+    }
+
 }
 
 dependencies {
