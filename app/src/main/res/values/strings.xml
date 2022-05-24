@@ -2,7 +2,7 @@
     <string name="app_name">TimeOwner</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">个人信息</string>
     <string name="title_activity_test">TestActivity</string>
 
     <!-- Preference Titles -->
@@ -19,8 +19,19 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-
-    <!-- Target behavior部分 -->
-    <string name="calendar_scolling_behavior" translatable="false" >com.example.timeowner.target.behavior.CalendarScrollBehavior</string>
-    <string name="calendar_behavior" translatable="false" >com.example.timeowner.target.behavior.CalendarBehavior</string>
+    <string name="account_label">账   号 : </string>
+    <string name="psw_label">密   码 : </string>
+    <string name="confirm_psw_label">确认密码 : </string>
+    <string name="captcha_label">请输入验证码 </string>
+    <string name="forget_psw">忘记密码？</string>
+    <string name="button_to_login">登录</string>
+    <string name="button_to_register">注册</string>
+    <string name="button_to_return">返回登录</string>
+    <string name="no_login_text">未登录</string>
+    <string name="method_to_login">点击头像登录</string>
+    <string name="exit_label">退出</string>
+    <string name="time_format">您已来到光阴记 %1$s 天</string>
+    <string name="recent_channel">最近加入的频道</string>
+    <string name="welcome_text">欢迎加入光阴记大家庭！</string>
+    <string name="encourage_text">没有记录，就没有发生！</string>
 </resources>
