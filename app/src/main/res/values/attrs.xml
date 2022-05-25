@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VerifyCaptcha">
+        <attr name="captchaTextSize" format="dimension" />
+        <attr name="captchaBackground" format="color" />
+        <attr name="captchaLength" format="integer" />
+        <attr name="isContainChar" format="boolean" />
+        <attr name="pointNum" format="integer" />
+        <attr name="linNum" format="integer" />
+    </declare-styleable>
+</resources>
