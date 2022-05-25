@@ -18,7 +18,7 @@ public class ConcentrationMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.concentration_main);
         // 获得计时器对象
-        timer = (Chronometer) this.findViewById(R.id.chronometer);
+        timer = (Chronometer) this.findViewById(androidx.core.R.id.chronometer);
         //长按计时器时，出现上下文菜单
         this.registerForContextMenu(timer);
     }

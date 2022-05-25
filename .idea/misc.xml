@@ -3,27 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.4" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.4" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.264" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/14733/AndroidStudioProjects/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
         <entry key="..\:/Users/14733/Documents/Code/AndroidStudioProjects/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/drawable/concentration_drawable.xml" value="0.1" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.10520833333333333" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/values/layout/coursetable_main.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/drawable/coursetable_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetalbe_main.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_main.xml" value="0.19829059829059828" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/drawable/habit_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_main.xml" value="0.19829059829059828" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/information/layout/layout1.xml" value="0.240625" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/concentration_layout.xml" value="0.1" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.1" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.10520833333333333" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/values/layout/coursetable_main.xml" value="0.1" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/target/drawable/target_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.1" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.1" />
       </map>
     </option>
