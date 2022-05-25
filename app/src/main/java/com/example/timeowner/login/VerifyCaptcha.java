@@ -33,9 +33,6 @@ public class VerifyCaptcha extends View {
     private static Random mRandom = new Random();
     private static int mWidth;//控件宽度
     private static int mHeight;//控件高度
-    public VerifyCaptcha(Context context) {
-        super(context);
-    }
 
     public VerifyCaptcha(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
