@@ -19,6 +19,12 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!-- Target behavior部分 -->
+    <string name="calendar_scolling_behavior" translatable="false" >com.example.timeowner.target.behavior.CalendarScrollBehavior</string>
+    <string name="calendar_behavior" translatable="false" >com.example.timeowner.target.behavior.CalendarBehavior</string>
+
+
     <string name="account_label">账   号 : </string>
     <string name="psw_label">密   码 : </string>
     <string name="confirm_psw_label">确认密码 : </string>

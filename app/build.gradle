@@ -73,4 +73,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.prolificinteractive:material-calendarview:1.4.0'
     implementation 'com.github.alamkanak:android-week-view:1.2.6'
+    implementation 'com.github.zfman:TimetableView:2.0.6'
 }
