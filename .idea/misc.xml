@@ -3,33 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/drawable/shape.xml" value="0.2465" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/information/drawable/information_drawable.xml" value="0.1235" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.4" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.4" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.19424460431654678" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.1125" />
-        <entry key="..\:/Android/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/14733/AndroidStudioProjects/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
-        <entry key="..\:/Users/14733/Documents/Code/AndroidStudioProjects/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.10520833333333333" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/concentration_layout.xml" value="0.1" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.1" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.10520833333333333" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/values/layout/coursetable_main.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.1" />
+        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/coursetable/layout/coursetable_main.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
