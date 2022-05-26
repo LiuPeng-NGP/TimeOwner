@@ -4,7 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 数据仓库
@@ -14,56 +16,42 @@ import java.util.List;
 
 public class SubjectRepertory {
 
-    public static List<MySubject> loadDefaultSubjects(){
-        //待完善
-        String json="[[\"2\",\"移动应用开发\",\"D212\",\"1\",\"2\",\"郝小可\",\"\",\"1\",\"\"]," +
-                "[]]";
-        return parse(json);
-    }
-    //解析字符串
-    public  static List<MySubject> parse(String parseString) {
+    public static List<MySubject> loadDefaultSubjects() {
         List<MySubject> courses = new ArrayList<>();
-        try {
-            JSONArray array = new JSONArray(parseString);
-            for(int i=0;i<array.length();i++){
-                JSONArray array2=array.getJSONArray(i);
-                String term=array2.getString(0);
-                String name=array2.getString(3);
-                String teacher=array2.getString(8);
-                if(array2.length()<=10){
-                    //courses.add(new MySubject(term,name,null, teacher, null, -1, -1, -1, -1,null));
-                    continue;
-                }
-                String string=array2.getString(17);
-                if(string!=null){
-                    string=string.replaceAll("\\(.*?\\)", "");
-                }
-                String room=array2.getString(16)+string;
-                String weeks=array2.getString(11);
-                int day,start,step;
-                try {
-                    day=Integer.parseInt(array2.getString(12));
-                    start=Integer.parseInt(array2.getString(13));
-                    step=Integer.parseInt(array2.getString(14));
-                } catch (Exception e) {
-                    day=-1;
-                    start=-1;
-                    step=-1;
-                }
-                //courses.add(new MySubject(term,name, room, teacher, getWeekList(weeks), start, step, day, -1,null));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+        //数据库获取数据
+        //待补充
+        int course_num = 0;
+        while(course_num != 0){
+            //获取
+            String name = "";
+            int day = 0;
+            String room = "";
+            int start = 0;
+            int step = 0;
+            String teacher = "";
+            String weekListString = "";//周表的存储形式
+            List<Integer> weekList = new ArrayList<>();
+            weekList = getWeekList(weekListString);
+            int colorRandom = 0;
+            int credit = 0;
+            int type = 0;
+            String courseId = "";
+            String term = "";
+            Map<String,Object> extras=new HashMap<>();
+            extras.put("credit",credit);
+            extras.put("type",type);
+            extras.put("courseId",courseId);
+            extras.put("term",term);
+            courses.add(new MySubject(day,name,room,start,step,teacher,weekList,colorRandom,extras));
+        };
         return courses;
     }
 
+    //对字符串 "1,2,3,4"类解析,返回包含课程的周
     public static List<Integer> getWeekList(String weeksString){
         List<Integer> weekList=new ArrayList<>();
         if(weeksString==null||weeksString.length()==0) return weekList;
 
-        weeksString=weeksString.replaceAll("[^\\d\\-\\,]", "");
         if(weeksString.contains(",")){
             String[] arr=weeksString.split(",");
             for(int i=0;i<arr.length;i++){
@@ -88,5 +76,4 @@ public class SubjectRepertory {
             weekList.add(i);
         return weekList;
     }
-
 }

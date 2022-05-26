@@ -26,7 +26,18 @@ public class MySubject implements ScheduleEnable {
     //Map表,包含学分、课程号、类型、学期
     Map<String,Object> extras=new HashMap<>();
 
-    public MySubject(){}
+    public MySubject(int day,String name,String room,int start,int step,String teacher,List<Integer> weekList,int colorRandom,Map<String,Object> extras){
+        super();
+        this.day = day;
+        this.name = name;
+        this.room = room;
+        this.start = start;
+        this.step = step;
+        this.teacher = teacher;
+        this.weekList = weekList;
+        this.colorRandom = colorRandom;
+        this.extras = extras;
+    }
 
     public int getColorRandom() {//随机选取，但要保证不同
         return colorRandom;
