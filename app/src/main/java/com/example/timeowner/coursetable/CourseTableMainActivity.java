@@ -28,11 +28,9 @@ public class CourseTableMainActivity extends Activity {
         //模拟获取课程数据：自定义格式
         List<MySubject> mySubjects = SubjectRepertory.loadDefaultSubjects();
         //设置数据源并显示
-        /*
         mTimetableView.source(mySubjects)
                 .curWeek(1)
                 .callback(new IWeekView.OnWeekItemClickedListener(){
-
                     @Override
                     public void onWeekClicked(int week) {
                         int cur = mTimetableView.curWeek();
@@ -43,18 +41,16 @@ public class CourseTableMainActivity extends Activity {
                         mTimetableView.changeWeekOnly(week);
                     }
                 })
-                .callback(new IWeekView.OnWeekLeftClickedListener(){
-
+                .callback(new IWeekView.OnWeekLeftClickedListener() {
                     @Override
                     public void onWeekLeftClicked() {
                         onWeekLeftLayoutClicked();
                     }
                 })
-                .isShow(false)
+                .isShow(false)//设置隐藏，默认显示
                 .showView();
 
         //设置周次选择属性
-        
-         */
+
     }
 }

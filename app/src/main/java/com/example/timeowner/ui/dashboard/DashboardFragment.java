@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.timeowner.databinding.FragmentDashboardBinding;
+import com.example.timeowner.ui.notifications.DashboardViewModel;
 
 public class DashboardFragment extends Fragment {
 
