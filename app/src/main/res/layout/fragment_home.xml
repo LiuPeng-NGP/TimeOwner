@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
-
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="152dp"
@@ -16,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/target_180x180"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="@string/target" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -27,7 +39,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/habit_180x180"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="HardcodedText,MissingConstraints"
+        android:contentDescription="Habit" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -37,7 +50,8 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-        app:srcCompat="@drawable/coursetable_180x180" />
+        app:srcCompat="@drawable/coursetable_180x180"
+        android:contentDescription="@string/course_table" />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -47,7 +61,8 @@
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-        app:srcCompat="@drawable/event_180x180" />
+        app:srcCompat="@drawable/event_180x180"
+        android:contentDescription="@string/events" />
 
     <ImageButton
         android:id="@+id/imageButton7"
@@ -57,7 +72,8 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5"
-        app:srcCompat="@drawable/concentration_180x180" />
+        app:srcCompat="@drawable/concentration_180x180"
+        android:contentDescription="@string/concentration" />
 
     <ImageButton
         android:id="@+id/imageButton8"
@@ -67,5 +83,16 @@
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6"
-        app:srcCompat="@drawable/happiness_180x180" />
+        app:srcCompat="@drawable/happiness_180x180"
+        android:contentDescription="@string/happiness" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="420dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

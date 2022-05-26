@@ -40,4 +40,9 @@
     <string name="recent_channel">最近加入的频道</string>
     <string name="welcome_text">欢迎加入光阴记大家庭！</string>
     <string name="encourage_text">没有记录，就没有发生！</string>
+    <string name="target">Target</string>
+    <string name="course_table">Course Table</string>
+    <string name="concentration">Concentration</string>
+    <string name="events">Events</string>
+    <string name="happiness">Happiness</string>
 </resources>

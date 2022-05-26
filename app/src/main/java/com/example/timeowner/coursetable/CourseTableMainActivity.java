@@ -20,10 +20,9 @@ public class CourseTableMainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.coursetable_main);
-
-        WeekView mWeekView = (WeekView) findViewById(R.id.weekView);
-        TimetableView mTimetableView = (TimetableView) findViewById(R.id.timetableView);
+        //setContentView(R.layout.coursetable_main);
+        //WeekView mWeekView = (WeekView) findViewById(R.id.weekView);
+        //TimetableView mTimetableView = (TimetableView) findViewById(R.id.timetableView);
 
         //模拟获取课程数据：自定义格式
         List<MySubject> mySubjects = SubjectRepertory.loadDefaultSubjects();

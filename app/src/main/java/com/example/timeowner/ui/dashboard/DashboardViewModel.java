@@ -1,4 +1,4 @@
-package com.example.timeowner.ui.notifications;
+package com.example.timeowner.ui.dashboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
