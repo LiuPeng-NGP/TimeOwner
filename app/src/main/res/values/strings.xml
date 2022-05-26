@@ -24,10 +24,10 @@
     <string name="calendar_scolling_behavior" translatable="false" >com.example.timeowner.target.behavior.CalendarScrollBehavior</string>
     <string name="calendar_behavior" translatable="false" >com.example.timeowner.target.behavior.CalendarBehavior</string>
 
-
-    <string name="account_label">账   号 : </string>
-    <string name="psw_label">密   码 : </string>
-    <string name="confirm_psw_label">确认密码 : </string>
+    <string name="name_label">请输入用户名</string>
+    <string name="account_label">请输入账号</string>
+    <string name="psw_label">请输入密码</string>
+    <string name="confirm_psw_label">再次确认密码</string>
     <string name="captcha_label">请输入验证码 </string>
     <string name="forget_psw">忘记密码？</string>
     <string name="button_to_login">登录</string>
