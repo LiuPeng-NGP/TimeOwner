@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
     <string name="app_name">TimeOwner</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -40,4 +40,9 @@
     <string name="recent_channel">最近加入的频道</string>
     <string name="welcome_text">欢迎加入光阴记大家庭！</string>
     <string name="encourage_text">没有记录，就没有发生！</string>
+    <string name="email_label" >请输入邮箱</string>
+    <string name="get_email_code">获取重置码</string>
+    <string name="reset_code_label">请输入重置码</string>
+    <string name="submit">提交</string>
+    <string name="reset_psw_label">请重新设置密码</string>
 </resources>

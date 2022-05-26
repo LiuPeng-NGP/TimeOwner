@@ -80,4 +80,5 @@ dependencies {
     implementation 'com.prolificinteractive:material-calendarview:1.4.0'
     implementation 'com.github.alamkanak:android-week-view:1.2.6'
     implementation 'com.github.zfman:TimetableView:2.0.6'
+    implementation 'com.github.mailhu:emailkit:4.2.1'
 }
