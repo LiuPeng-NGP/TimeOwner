@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <include layout="@layout/coursetable_header"/>
     <com.zhuangfei.timetable.view.WeekView
         android:id="@+id/weekView"
         android:layout_width="match_parent"

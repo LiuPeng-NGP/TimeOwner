@@ -39,6 +39,7 @@ android {
                     'src/main/res/coursetable/drawable',
                     'src/main/res/coursetable/values',
                     'src/main/res/coursetable/layout',
+                    'src/main/res/coursetable/menu',
                     'src/main/res/coursetable',
                     'src/main/res/event/drawable',
                     'src/main/res/event/values',
