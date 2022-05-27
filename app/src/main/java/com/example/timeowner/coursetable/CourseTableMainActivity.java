@@ -1,4 +1,4 @@
-package com.example.timeowner.coursetable;
+/*package com.example.timeowner.coursetable;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import java.util.List;
  * 课程表主函数
  * @author jiangx
  */
-public class CourseTableMainActivity extends Activity {
+/*public class CourseTableMainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,4 +52,4 @@ public class CourseTableMainActivity extends Activity {
 //        //设置周次选择属性
 
     }
-}
+}*/
