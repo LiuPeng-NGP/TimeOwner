@@ -21,7 +21,6 @@ import static androidx.core.view.ViewCompat.TYPE_TOUCH;
 
 /**
  * 列表 Behavior
- * Created by NanBox on 2018/1/19.
  */
 
 public class CalendarBehavior extends ViewOffsetBehavior<MaterialCalendarView> {

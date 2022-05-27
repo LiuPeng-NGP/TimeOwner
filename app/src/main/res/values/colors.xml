@@ -12,4 +12,9 @@
     <color name="grey2">#757575</color>
     <color name="app_white_slight">#FBFBFB</color>
     <color name="app_gold">#20B2AA</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_ee">#EEEEEE</color>
 </resources>

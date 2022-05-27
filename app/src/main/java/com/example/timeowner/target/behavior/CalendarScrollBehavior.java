@@ -16,7 +16,6 @@ import java.util.List;
 
 /**
  * 日历 Behavior
- * Created by NanBox on 2018/1/19.
  */
 
 public class CalendarScrollBehavior extends ViewOffsetBehavior<RecyclerView> {
