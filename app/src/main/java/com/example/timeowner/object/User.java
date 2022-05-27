@@ -1,20 +1,36 @@
 package com.example.timeowner.object;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import java.io.ByteArrayOutputStream;
 
 public class User {
     private String userID;
     private String userPassword;
     private String userName;
+    private String userEmail;
     private Bitmap userPicture;
     private String userRecentChannel;
 
-    public User(String userID, String userPassword, String userName, Bitmap userPicture, String userRecentChannel) {
+    public User() {
+    }
+
+    public User(String userID, String userPassword, String userName, String userEmail, Bitmap userPicture, String userRecentChannel) {
         this.userID = userID;
         this.userPassword = userPassword;
         this.userName = userName;
+        this.userEmail = userEmail;
         this.userPicture = userPicture;
         this.userRecentChannel = userRecentChannel;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getUserID() {
@@ -56,4 +72,11 @@ public class User {
     public void setUserRecentChannel(String userRecentChannel) {
         this.userRecentChannel = userRecentChannel;
     }
+
+    public byte[] bitmapToBLOB() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        userPicture.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
+    }
+
 }
