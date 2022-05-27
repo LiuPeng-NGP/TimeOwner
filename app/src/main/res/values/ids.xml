@@ -7,4 +7,7 @@
     <item name="reset_psw_confirm_entry" type="id" />
     <item name="button_to_submit" type="id" />
     <item name="button_to_return_login" type="id" />
+    <item name="forget_account_entry" type="id" />
+    <item name="re_name_entry" type="id" />
+    <item name="re_email_entry" type="id" />
 </resources>
