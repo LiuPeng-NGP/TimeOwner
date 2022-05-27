@@ -20,7 +20,7 @@ public class CourseTableMainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.coursetable_main);
+        setContentView(R.layout.coursetable_main);
 //        WeekView mWeekView = (WeekView) findViewById(R.id.weekView);
 //        TimetableView mTimetableView = (TimetableView) findViewById(R.id.timetableView);
 //
