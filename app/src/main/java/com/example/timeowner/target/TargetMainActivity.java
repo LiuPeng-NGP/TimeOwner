@@ -97,7 +97,7 @@ public class TargetMainActivity extends AppCompatActivity {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 Calendar calendar1 = date.getCalendar();
                 calendarBehavior.setWeekOfMonth(calendar.get(Calendar.WEEK_OF_MONTH));
-                title_month.setText(date.getMonth()+1+"月 周"+getWeekOfDate(date));
+                title_month.setText(date.getMonth()+ 1 +"月 周"+getWeekOfDate(date));
 
             }
         });
@@ -106,10 +106,11 @@ public class TargetMainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         RecyclerView rv = findViewById(R.id.Tg_recyclerview);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        //获取数据源
         String[] names = getResources().getStringArray(R.array.target_items);
         List<String> mList = new ArrayList<>();
         Collections.addAll(mList, names);
-        rv.setAdapter(new TargetListAdapter(this,mList));
+        rv.setAdapter(new TargetListAdapter(this,mList,mList));
         RecyclerView.ItemDecoration itemDecoration =
                 new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rv.addItemDecoration(itemDecoration);

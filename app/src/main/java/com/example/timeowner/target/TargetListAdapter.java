@@ -21,10 +21,12 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
 
     private final Context mContext;
     private final List<String> mList;
+    private final List<String> mDay;
 
-    TargetListAdapter(Context context, List<String> list) {
+    TargetListAdapter(Context context, List<String> list, List<String> mDay) {
         mContext = context;
         mList = list;
+        this.mDay = mDay;
     }
 
     @NonNull
@@ -38,6 +40,7 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
     @Override
     public void onBindViewHolder(@NonNull TextHolder holder, int position) {
         holder.textView.setText(mList.get(position));
+        holder.textView_day.setText(mDay.get(position));
     }
 
     @Override
@@ -45,13 +48,15 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
         return mList.size();
     }
 
-    class TextHolder extends RecyclerView.ViewHolder {
+    static class TextHolder extends RecyclerView.ViewHolder {
 
         TextView textView;
+        TextView textView_day;
 
         TextHolder(View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.tv);
+            textView_day = itemView.findViewById(R.id.tv_day);
         }
     }
 }

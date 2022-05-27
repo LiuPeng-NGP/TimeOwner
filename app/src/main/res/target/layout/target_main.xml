@@ -40,7 +40,6 @@
             android:id="@+id/Tg_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="110dp"
             android:background="@color/color_ee"
             tools:listitem="@layout/target_item_list"
             app:layout_behavior="@string/calendar_scolling_behavior"/>
