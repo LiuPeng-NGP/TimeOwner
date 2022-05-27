@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeOwner">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -19,18 +20,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".login.RegisterActivity"
             android:exported="false" />
+
         <activity
             android:name=".login.LoginActivity"
             android:exported="false" />
+
         <activity android:name=".concentration.ConcentrationMainActivity"
             android:exported="true"/>
-        <activity android:name=".target.TargetMainActivity"
-            android:exported="true"/>
+
         <activity android:name=".coursetable.CourseTableMainActivity"
             android:exported="true"/>
+
+        <activity android:name=".event.EventMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".habit.HabitMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".happiness.HappinessMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".target.TargetMainActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
