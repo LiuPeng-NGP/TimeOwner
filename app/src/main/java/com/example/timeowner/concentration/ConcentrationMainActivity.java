@@ -1,64 +1,66 @@
 package com.example.timeowner.concentration;
 
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.MenuItem;
+import android.os.SystemClock;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.timeowner.R;
 
-public class ConcentrationMainActivity extends Activity {
-    private Chronometer timer;
+public class ConcentrationMainActivity extends AppCompatActivity implements View.OnClickListener,Chronometer.OnChronometerTickListener{
+
+    private Chronometer chronometer;
+    private Button start,stop,reset,format;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.concentration_main);
-        // 获得计时器对象
-        timer = (Chronometer) this.findViewById(androidx.core.R.id.chronometer);
-        //长按计时器时，出现上下文菜单
-        this.registerForContextMenu(timer);
-    }
-    //创建上下文菜单
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
-    {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        // ContextMenu的Item不支持Icon，所以不用再资源文件中，为它们设定图标
-        if (v.getId() == R.id.chronometer)
-        {
-            //加载xml菜单布局文件
-            //this.getMenuInflater().inflate(R.menu.context_menu, menu);
-            // 设定头部图标
-            menu.setHeaderIcon(R.drawable.ic_launcher_background);
-            // 设定头部标题
-            menu.setHeaderTitle(" 计时器控制选项 ");
-        }
-    }
-    //选择菜单项后的响应
-    @Override
-    public boolean onContextItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-//            case R.id.timer_start:
-//                // 将计时器清零
-//                timer.setBase(SystemClock.elapsedRealtime());
-//                //开始计时
-//                timer.start();
-//                break;
-//            case R.id.timer_stop:
-//                //停止计时
-//                timer.stop();
-//                break;
-//            case R.id.timer_reset:
-//                //将计时器清零
-//                timer.setBase(SystemClock.elapsedRealtime());
-//                break;
-        }
-        return super.onContextItemSelected(item);
+        initView();
     }
 
+    private void initView() {
+        chronometer = (Chronometer) findViewById(R.id.chronometer);
+        start = (Button) findViewById(R.id.Start);
+        stop = (Button) findViewById(R.id.Stop);
+        reset = (Button) findViewById(R.id.Reset);
+        format = (Button) findViewById(R.id.format);
+
+        chronometer.setOnChronometerTickListener(this);
+        start.setOnClickListener(this);
+        stop.setOnClickListener(this);
+        reset.setOnClickListener(this);
+        format.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.Start:
+                chronometer.start();// 开始计时
+                break;
+            case R.id.Stop:
+                chronometer.stop();// 停止计时
+                break;
+            case R.id.Reset:
+                chronometer.setBase(SystemClock.elapsedRealtime());// 复位
+                break;
+            case R.id.format:
+                chronometer.setFormat("T：%s");// 更改时间显示格式
+                break;
+        }
+    }
+
+    @Override
+    public void onChronometerTick(Chronometer chronometer) {
+        String time = chronometer.getText().toString();
+        if(time.equals("00:00")){
+            Toast.makeText(ConcentrationMainActivity.this,"时间到了~", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
