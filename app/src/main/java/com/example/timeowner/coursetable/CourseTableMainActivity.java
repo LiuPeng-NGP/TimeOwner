@@ -33,44 +33,41 @@ import java.util.List;
  */
 public class CourseTableMainActivity extends Activity {
 
-    //控件
-    TimetableView mTimetableView;
     WeekView mWeekView;
+    TimetableView mTimetableView;
+    List<MySubject> mySubjects;
     Button moreButton;
     LinearLayout layout;
     TextView titleTextView;
-
-    List<MySubject> mySubjects;
-    //记录切换的周次，不一定是当前周
     int target = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.coursetable_main);
 
-        moreButton = (Button) findViewById(R.id.id_more);
-        moreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopmenu();
-            }
-        });
+//        moreButton = (Button) findViewById(R.id.id_more);
+//        moreButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showPopmenu();
+//            }
+//        });
         //初始化
+        mySubjects = SubjectRepertory.loadDefaultSubjects();
+        titleTextView = (TextView) findViewById(R.id.id_title);
+        layout = (LinearLayout) findViewById(R.id.id_layout);
+        layout.setOnClickListener((View.OnClickListener) this);
         initTimetableView();
         //模拟获取课程数据：自定义格式
-        mySubjects = SubjectRepertory.loadDefaultSubjects();
-//        //设置数据源并显示
-//        mTimetableView.source(mySubjects);
-//        mTimetableView.curWeek(1);//默认设置第一周
-//        //设置周次选择属性
-//        mTimetableView.showView();
+        //设置数据源并显示
+        mWeekView = (WeekView) findViewById(R.id.weekView);
+        mTimetableView = (TimetableView) findViewById(R.id.timetableView);
+
+        //模拟获取课程数据：自定义格式
     }
 
     private void initTimetableView() {
-        mWeekView = (WeekView) findViewById(R.id.weekView);
-        mTimetableView = (TimetableView) findViewById(R.id.timetableView);
         //设置周次选择属性
         mWeekView.source(mySubjects)
                 .curWeek(getLocalWeek())
@@ -135,41 +132,10 @@ public class CourseTableMainActivity extends Activity {
                     }
                 })
                 .showView();
-//        setContentView(R.layout.coursetable_main);
-//        WeekView mWeekView = (WeekView) findViewById(R.id.weekView);
-//        TimetableView mTimetableView = (TimetableView) findViewById(R.id.timetableView);
-//
-//        //模拟获取课程数据：自定义格式
-//        List<MySubject> mySubjects = SubjectRepertory.loadDefaultSubjects();
-//        //设置数据源并显示
-//        mTimetableView.source(mySubjects)
-//                .curWeek(1)
-//                .callback(new IWeekView.OnWeekItemClickedListener(){
-//                    @Override
-//                    public void onWeekClicked(int week) {
-//                        int cur = mTimetableView.curWeek();
-//                        //更新切换后的日期，从当前周cur->切换的周week
-//                        mTimetableView.onDateBuildListener()
-//                                .onUpdateDate(cur, week);
-//                        //课表切换周次
-//                        mTimetableView.changeWeekOnly(week);
-//                    }
-//                })
-//                .callback(new IWeekView.OnWeekLeftClickedListener() {
-//                    @Override
-//                    public void onWeekLeftClicked() {
-//                        onWeekLeftLayoutClicked();
-//                    }
-//                })
-//                .isShow(false)//设置隐藏，默认显示
-//                .showView();
-//
-//        //设置周次选择属性
-
     }
     /*
-    获取周数
-    * */
+     *获取周数
+     */
     private int getLocalWeek() {
         int weekResult = -1;
         SharedPreferences preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
@@ -257,7 +223,7 @@ public class CourseTableMainActivity extends Activity {
      * 显示弹出菜单
      */
     private void showPopmenu() {
-        PopupMenu popup = new PopupMenu(this, moreButton);
+        PopupMenu popup = new PopupMenu(this,moreButton);
         popup.getMenuInflater().inflate(R.menu.popmenu_base_func, popup.getMenu());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
@@ -382,7 +348,7 @@ public class CourseTableMainActivity extends Activity {
      */
     protected void showTime() {
         String[] times = new String[]{
-                "09:00", "10:20", "10:40", "12:00",
+                "08:30", "10:05", "10:25", "12:00",
                 "12:30", "13:50", "14:00", "15:20",
                 "15:30", "16:50", "17:00", "18:20",
                 "19:00", "20:20", "20:30", "21:50"
@@ -479,3 +445,4 @@ public class CourseTableMainActivity extends Activity {
     }
 
 }
+

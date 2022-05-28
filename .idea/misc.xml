@@ -3,14 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/drawable/layout/coursetable_header.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/drawable/menu/popmenu_base_func.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/coursetable/layout/coursetable_main.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/coursetable/menu/layout/popmenu_base_func.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/coursetable/menu/menu/popmenu_base_func.xml" value="0.1" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/coursetable/menu/popmenu_base_func.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.17916666666666667" />
-
         <entry key="..\:/Android/TimeOwner/app/src/main/res/drawable/shape.xml" value="0.2465" />
         <entry key="..\:/Android/TimeOwner/app/src/main/res/information/drawable/information_drawable.xml" value="0.1235" />
         <entry key="..\:/Android/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.1125" />
@@ -50,11 +42,32 @@
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.1" />
-
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.1" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetable_header.xml" value="0.264" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetable_main.xml" value="0.264" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1655" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1655" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1655" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/shape.xml" value="0.1655" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/underline.xml" value="0.1655" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_main.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_main.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/information/drawable/information_drawable.xml" value="0.2305" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.22395833333333334" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.22395833333333334" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20277777777777778" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.20277777777777778" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

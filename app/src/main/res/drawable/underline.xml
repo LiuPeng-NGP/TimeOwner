@@ -5,5 +5,5 @@
     <!-- 连框宽度和颜色值 -->
     <stroke
         android:width="2dp"
-        android:color="#2C4EFF" />
+        android:color="#9AE91E63" />
 </shape>
