@@ -42,7 +42,7 @@
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.1" />
-        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.1" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.264" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetable_header.xml" value="0.264" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetable_main.xml" value="0.264" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1655" />
@@ -52,6 +52,7 @@
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/shape.xml" value="0.1655" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/drawable/underline.xml" value="0.1655" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_main.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/habit/drawable/habit_drawable.xml" value="0.224" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_main.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/information/drawable/information_drawable.xml" value="0.2305" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.22395833333333334" />
@@ -59,11 +60,14 @@
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.18115942028985507" />
-        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20277777777777778" />
         <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.20277777777777778" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/target/layout/target_item_list.xml" value="0.21875" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/target/layout/target_item_list_done.xml" value="0.21875" />
+        <entry key="..\:/Users/26375/Documents/GitHub/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.21875" />
       </map>
     </option>
   </component>
