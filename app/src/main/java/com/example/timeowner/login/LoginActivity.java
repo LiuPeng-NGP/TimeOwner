@@ -32,8 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private String mAccount;
 
     public static final String ACCOUNT_EXTRA_KEY = "login_account";
-    private static final int FIND_ACCOUNT = 1;
-    private static final int NOT_FIND_ACCOUNT = 2;
+    private static final int USER_LOGIN = 1;
 
     private ActivityResultLauncher mLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -90,26 +89,29 @@ public class LoginActivity extends AppCompatActivity {
         @SuppressLint("HandlerLeak") Handler handler = new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
-                if (msg.what == FIND_ACCOUNT) {
+                if (msg.what == USER_LOGIN) {
                     User user = new User();
                     user = (User) msg.obj;
-                    if (psw == null || psw.equals("")) {
-                        Toast.makeText(LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
-                        super.handleMessage(msg);
-                    } else if (!psw.equals(user.getUserPassword())) {
-                        Toast.makeText(LoginActivity.this, "密码错误！密码为 " + user.getUserPassword(), Toast.LENGTH_SHORT).show();
+                    if (user.getUserID() == null) {
+                        Toast.makeText(LoginActivity.this, "账号不存在！", Toast.LENGTH_SHORT).show();
                         super.handleMessage(msg);
                     } else {
-                        Intent resultData =new Intent();
-                        resultData.putExtra(ACCOUNT_EXTRA_KEY, account);
-                        setResult(RESULT_OK,resultData);
-                        Toast.makeText(LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
-                        super.handleMessage(msg);
-                        finish();
+                        if (psw == null || psw.equals("")) {
+                            Toast.makeText(LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+                            super.handleMessage(msg);
+                        } else if (!psw.equals(user.getUserPassword())) {
+                            Toast.makeText(LoginActivity.this, "密码错误！密码为 " + user.getUserPassword(), Toast.LENGTH_SHORT).show();
+                            super.handleMessage(msg);
+                        } else {
+                            Intent resultData =new Intent();
+                            resultData.putExtra(ACCOUNT_EXTRA_KEY, account);
+                            setResult(RESULT_OK,resultData);
+                            Toast.makeText(LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
+                            super.handleMessage(msg);
+                            finish();
+                        }
                     }
-                } else if (msg.what == NOT_FIND_ACCOUNT) {
-                    Toast.makeText(LoginActivity.this, "账号不存在！", Toast.LENGTH_SHORT).show();
-                    super.handleMessage(msg);
+
                 }
             }
         };
@@ -118,13 +120,9 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 DBConnectUser dbConnectUser = new DBConnectUser();
                 User user = dbConnectUser.select(Integer.parseInt(account));
-                Message msg = new Message();
-                if (user.getUserID() == null) {
-                    msg.what = NOT_FIND_ACCOUNT;
-                } else {
-                    msg.what = FIND_ACCOUNT;
-                    msg.obj = user;
-                }
+                Message msg = Message.obtain();
+                msg.what = USER_LOGIN;
+                msg.obj = user;
                 handler.sendMessage(msg);
                 try {
                     Thread.sleep(100);

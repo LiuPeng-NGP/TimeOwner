@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff">
+    <TextView
+        android:id="@+id/take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/take_photo_label"
+        android:gravity="center"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:padding="10dp"
+        tools:targetApi="m" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/split"/>
+
+    <TextView
+        android:id="@+id/open_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/open_album_label"
+        android:gravity="center"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:padding="10dp"
+        tools:targetApi="m" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/split"/>
+    <TextView
+        android:id="@+id/cancel_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_label"
+        android:gravity="center"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:padding="10dp"
+        tools:targetApi="m" />
+
+</LinearLayout>
