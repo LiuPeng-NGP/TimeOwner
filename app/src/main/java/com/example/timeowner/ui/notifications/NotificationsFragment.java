@@ -14,6 +14,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import top.zibin.luban.CompressionPredicate;
+import top.zibin.luban.Luban;
+import top.zibin.luban.OnCompressListener;
 
 
 public class NotificationsFragment extends Fragment {
@@ -320,7 +325,6 @@ public class NotificationsFragment extends Fragment {
         if (!mHasPermission) {
             //Toast.makeText(getActivity(), "未获取到权限！", Toast.LENGTH_SHORT).show();
             requestPermission();
-            return;
         }
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         mTakePhotoLauncher.launch(intent);
@@ -334,7 +338,6 @@ public class NotificationsFragment extends Fragment {
         if (!mHasPermission) {
             //Toast.makeText(getActivity(), "未获取到权限！", Toast.LENGTH_SHORT).show();
             requestPermission();
-            return;
         }
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
@@ -394,26 +397,22 @@ public class NotificationsFragment extends Fragment {
     private void cutPicture(Uri uri) {
         Uri destinationUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/temp_picture" ,"cut_profile.png"));
         UCrop.Options options = new UCrop.Options();
-        UCrop uCrop = UCrop.of(uri, destinationUri);//第一个参数是裁剪前的uri,第二个参数是裁剪后的uri
-        uCrop.withAspectRatio(1, 1);//设置裁剪框的宽高比例
+        UCrop uCrop = UCrop.of(uri, destinationUri);
+        uCrop.withAspectRatio(1, 1);
         options.setAllowedGestures(com.yalantis.ucrop.UCropActivity.ALL, com.yalantis.ucrop.UCropActivity.NONE, com.yalantis.ucrop.UCropActivity.ALL);
-        options.setToolbarTitle("移动和缩放");//设置标题栏文字
-        options.setCropGridStrokeWidth(2);//设置裁剪网格线的宽度(我这网格设置不显示，所以没效果)
-        //options.setCropFrameStrokeWidth(1);//设置裁剪框的宽度
-        options.setMaxScaleMultiplier(3);//设置最大缩放比例
-        //options.setHideBottomControls(true);//隐藏下边控制栏
-        options.setShowCropGrid(true);  //设置是否显示裁剪网格
-        //options.setOvalDimmedLayer(true);//设置是否为圆形裁剪框
-        options.setShowCropFrame(true); //设置是否显示裁剪边框(true为方形边框)
-        options.setToolbarWidgetColor(Color.parseColor("#ffffff"));//标题字的颜色以及按钮颜色
-        options.setDimmedLayerColor(Color.parseColor("#AA000000"));//设置裁剪外颜色
-        options.setToolbarColor(Color.parseColor("#000000")); // 设置标题栏颜色
-        options.setStatusBarColor(Color.parseColor("#000000"));//设置状态栏颜色
-        options.setCropGridColor(Color.parseColor("#ffffff"));//设置裁剪网格的颜色
-        options.setCropFrameColor(Color.parseColor("#ffffff"));//设置裁剪框的颜色
+        options.setToolbarTitle("移动和缩放");
+        options.setCropGridStrokeWidth(2);
+        options.setMaxScaleMultiplier(3);
+        options.setShowCropGrid(true);
+        options.setShowCropFrame(true);
+        options.setToolbarWidgetColor(Color.parseColor("#ffffff"));
+        options.setDimmedLayerColor(Color.parseColor("#AA000000"));
+        options.setToolbarColor(Color.parseColor("#000000"));
+        options.setStatusBarColor(Color.parseColor("#000000"));
+        options.setCropGridColor(Color.parseColor("#ffffff"));
+        options.setCropFrameColor(Color.parseColor("#ffffff"));
         uCrop.withOptions(options);
-        uCrop.start(getActivity());
-
+        uCrop.start(getContext(), this, UCrop.REQUEST_CROP);
 
     }
 
@@ -426,20 +425,42 @@ public class NotificationsFragment extends Fragment {
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        Log.i("cCCCCC", "request" + String.valueOf(requestCode) + "result " + String.valueOf(resultCode) );
         if (resultCode == Activity.RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
                 final Uri resultUri = UCrop.getOutput(data);
-                Log.i("AC","得到result Uri： " );
-                Bitmap bitmap = null;
-                try {
-                    bitmap = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(resultUri));
-                    mProfile = bitmap;
-                    mProfileImage.setImageBitmap(bitmap);
-                    mUser.setUserPicture(bitmap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                new Thread(new Runnable() {
+                Luban.with(getContext())
+                    .load(resultUri)
+                    .ignoreBy(10)
+                    .setTargetDir(Environment.getExternalStorageDirectory() + "/temp_picture")
+                    .filter(new CompressionPredicate() {
+                        @Override
+                        public boolean apply(String path) {
+                            return !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif"));
+                        }
+                    })
+                    .setCompressListener(new OnCompressListener() {
+                        @Override
+                        public void onStart() {
+                            // TODO 压缩开始前调用，可以在方法内启动 loading UI
+                            Log.e("测试", "开始");
+                        }
+
+                        @Override
+                        public void onSuccess(File file) {
+                            // TODO 压缩成功后调用，返回压缩后的图片文件
+                            Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(file));
+                            mProfile = bitmap;
+                            mProfileImage.setImageBitmap(bitmap);
+                            mUser.setUserPicture(bitmap);
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            // TODO 当压缩过程出现问题时调用
+                            Log.e("测试", "失败");
+                        }
+                    }).launch();
+
+            new Thread(new Runnable() {
                     @Override
                     public void run() {
                         DBConnectUser dbConnectUser = new DBConnectUser();
@@ -448,7 +469,6 @@ public class NotificationsFragment extends Fragment {
                 }).start();
             } else if (requestCode == Activity.RESULT_OK && resultCode == UCrop.RESULT_ERROR) {
                 final Throwable cropError = UCrop.getError(data);
-                Log.i("CCCCCCC", "error");
             }
     }
 
