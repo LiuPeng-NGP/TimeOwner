@@ -49,10 +49,6 @@ android {
                     'src/main/res/habit/values',
                     'src/main/res/habit/layout',
                     'src/main/res/habit',
-                    'src/main/res/happiness/drawable',
-                    'src/main/res/happiness/values',
-                    'src/main/res/happiness/layout',
-                    'src/main/res/happiness',
                     'src/main/res/information/drawable',
                     'src/main/res/information/values',
                     'src/main/res/information/layout',
@@ -85,5 +81,5 @@ dependencies {
     implementation 'com.prolificinteractive:material-calendarview:1.4.0'
     implementation 'com.github.alamkanak:android-week-view:1.2.6'
     implementation 'com.github.zfman:TimetableView:2.0.6'
-    api 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+    implementation 'com.github.mailhu:emailkit:4.2.1'
 }

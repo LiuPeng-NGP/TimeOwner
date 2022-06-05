@@ -174,8 +174,8 @@ public class VerifyCaptcha extends View {
             mPaint.setARGB(255, mRandom.nextInt(200) + 20,
                     mRandom.nextInt(200) + 20, mRandom.nextInt(200) + 20);
             //设置字体绘制位置
-            canvas.drawText(String.valueOf(mCaptchaText.charAt(i - 1)), (i - 1)*charLength + 5,
-                    mHeight * 4 / 5f, mPaint);
+            canvas.drawText(String.valueOf(mCaptchaText.charAt(i - 1)), (i - 1) * charLength + 20,
+                    mHeight * 3 / 5f, mPaint);
             //用来恢复画布之前的状态，防止save后对Canvas执行的操作对后续的绘制有影响。
             canvas.restore();
         }
@@ -189,7 +189,7 @@ public class VerifyCaptcha extends View {
         }
         //画干扰线
         for (int i = 0; i < mLineNum; i++) {
-            drawLine(canvas,mPaint);
+            drawLine(canvas, mPaint);
         }
         return sourceBitmap;
     }

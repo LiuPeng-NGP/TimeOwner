@@ -5,69 +5,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg1"
     tools:context=".login.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="20dp">
-        <TextView
-            android:id="@+id/register_account_label"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:text="@string/account_label"/>
+<!--        <TextView-->
+<!--            android:id="@+id/register_account_label"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:text="@string/account_label"/>-->
         <EditText
-            android:id="@+id/register_account_entry"
+            android:id="@+id/re_name_entry"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
-            android:background="#ffffff" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_psw_label"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:text="@string/psw_label"/>
-        <EditText
-            android:id="@+id/register_psw_entry"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="#ffffff"
-            android:maxLines="1"
-            android:inputType="textPassword"/>
+            android:background="@drawable/shape"
+            android:hint="@string/name_label"
+            android:maxLines="1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="20dp">
-        <TextView
-            android:id="@+id/confirm_psw_label"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:text="@string/confirm_psw_label"/>
+        <!--        <TextView-->
+        <!--            android:id="@+id/register_account_label"-->
+        <!--            android:layout_width="80dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textColor="#FFFFFF"-->
+        <!--            android:text="@string/account_label"/>-->
+        <EditText
+            android:id="@+id/re_email_entry"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:maxLines="1"
+            android:layout_marginLeft="20dp"
+            android:hint="@string/email_label"
+            android:background="@drawable/shape" />
+<!--            android:inputType="textEmailAddress"/>-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+<!--        <TextView-->
+<!--            android:id="@+id/register_psw_label"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:text="@string/psw_label"/>-->
+        <EditText
+            android:id="@+id/register_psw_entry"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape"
+            android:hint="@string/psw_label"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+<!--        <TextView-->
+<!--            android:id="@+id/confirm_psw_label"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:text="@string/confirm_psw_label"/>-->
         <EditText
             android:id="@+id/confirm_psw_entry"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:maxLines="1"
             android:inputType="textPassword"
-            android:background="#ffffff"
+            android:background="@drawable/shape"
+            android:hint="@string/confirm_psw_label"
             android:layout_marginLeft="20dp"/>
     </LinearLayout>
     <LinearLayout
@@ -75,12 +103,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <com.example.timeowner.login.VerifyCaptcha
             android:id="@+id/captcha_image"
-            android:layout_height="100dp"
-            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             app:pointNum="100"
@@ -91,13 +125,12 @@
             app:captchaTextSize="18sp" />
         <EditText
             android:id="@+id/captcha_entry"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_width="160dp"
+            android:layout_height="48dp"
             android:hint="@string/captcha_label"
             android:background="@drawable/shape"
             android:layout_marginRight="40dp"
             android:layout_gravity="center"
-            android:textColorHint="#673AB7"
             android:maxLines="1" />
     </LinearLayout>
     <LinearLayout
