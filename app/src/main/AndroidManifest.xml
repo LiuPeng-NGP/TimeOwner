@@ -32,11 +32,23 @@
         <activity
             android:name=".login.ForgetPasswordActivity"
             android:exported="false" />
+
         <activity android:name=".concentration.ConcentrationMainActivity"
             android:exported="true"/>
-        <activity android:name=".target.TargetMainActivity"
-            android:exported="true"/>
+
         <activity android:name=".coursetable.CourseTableMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".event.EventMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".habit.HabitMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".happiness.HappinessMainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".target.TargetMainActivity"
             android:exported="true"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
