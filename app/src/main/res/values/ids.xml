@@ -15,4 +15,11 @@
     <item name="open_album" type="id" />
     <item name="cancel_label" type="id" />
     <item name="chang_information" type="id" />
+    <item name="chang_account_label" type="id" />
+    <item name="account_manager" type="id" />
+    <item name="information_account_label" type="id" />
+    <item name="information_name_label" type="id" />
+    <item name="information_email_label" type="id" />
+    <item name="information_profile_label" type="id" />
+    <item name="information_profile_image" type="id" />
 </resources>

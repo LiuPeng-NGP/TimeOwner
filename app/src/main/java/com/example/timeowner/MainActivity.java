@@ -1,9 +1,15 @@
 package com.example.timeowner;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.example.timeowner.ui.dashboard.DashboardFragment;
+import com.example.timeowner.ui.home.HomeFragment;
+import com.example.timeowner.ui.notifications.NotificationsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,10 +18,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.timeowner.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.sql.Timestamp;
 
 public class User {
     private String userID;
@@ -12,6 +13,9 @@ public class User {
     private String userEmail;
     private Bitmap userPicture;
     private String userRecentChannel;
+    private Timestamp userCreateTime;
+
+
 
     public User() {
     }
@@ -71,6 +75,13 @@ public class User {
 
     public void setUserRecentChannel(String userRecentChannel) {
         this.userRecentChannel = userRecentChannel;
+    }
+    public Timestamp getUserCreateTime() {
+        return userCreateTime;
+    }
+
+    public void setUserCreateTime(Timestamp userCreateTime) {
+        this.userCreateTime = userCreateTime;
     }
 
     public byte[] bitmapToBLOB() {

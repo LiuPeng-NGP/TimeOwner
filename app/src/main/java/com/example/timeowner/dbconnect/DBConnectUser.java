@@ -184,6 +184,7 @@ public class DBConnectUser extends DBConnect{
                     user.setUserName( resultSet.getString(4));
                     user.setUserPicture(bitmap);
                     user.setUserRecentChannel(resultSet.getString(6));
+                    user.setUserCreateTime(resultSet.getTimestamp(7));
                 }
 
 

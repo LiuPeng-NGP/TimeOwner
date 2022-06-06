@@ -35,6 +35,7 @@
     <string name="button_to_return">返回登录</string>
     <string name="no_login_text">未登录</string>
     <string name="method_to_login">点击头像登录</string>
+    <string name="chang_account">切换账号</string>
     <string name="exit_label">退出</string>
     <string name="time_format">您已来到光阴记 %1$s 天</string>
     <string name="recent_channel">最近加入的频道</string>
@@ -50,6 +51,10 @@
     <string name="open_album_label">打开图库</string>
     <string name="cancel_label">取消</string>
     <string name="chang_information">修改个人信息</string>
+    <string name="id_label">账号</string>
+    <string name="information_name_label">姓名</string>
+    <string name="information_email_label">邮箱</string>
+    <string name="information_profile_label">头像</string>
     <string name="target">Target</string>
     <string name="course_table">Course Table</string>
     <string name="concentration">Concentration</string>
