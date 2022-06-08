@@ -49,10 +49,6 @@ android {
                     'src/main/res/habit/values',
                     'src/main/res/habit/layout',
                     'src/main/res/habit',
-                    'src/main/res/happiness/drawable',
-                    'src/main/res/happiness/values',
-                    'src/main/res/happiness/layout',
-                    'src/main/res/happiness',
                     'src/main/res/information/drawable',
                     'src/main/res/information/values',
                     'src/main/res/information/layout',
@@ -61,6 +57,10 @@ android {
                     'src/main/res/target/values',
                     'src/main/res/target/layout',
                     'src/main/res/target',
+                    'src/main/res/happiness/drawable',
+                    'src/main/res/happiness/values',
+                    'src/main/res/happiness/layout',
+                    'src/main/res/happiness',
                     'src/main/res/layout',//必须要有
                     'src//main/res',//必须要有，倒数两个顺序必须是这样子，不能乱
             ]
@@ -79,11 +79,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.preference:preference:1.1.1'
+    implementation files('libs\\mysql-connector-java-5.1.47.jar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.prolificinteractive:material-calendarview:1.4.0'
     implementation 'com.github.alamkanak:android-week-view:1.2.6'
     implementation 'com.github.zfman:TimetableView:2.0.6'
-    api 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+    implementation 'com.github.mailhu:emailkit:4.2.1'
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.4'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'com.github.yalantis:ucrop:2.2.6'
+    implementation 'top.zibin:Luban:1.1.8'
 }

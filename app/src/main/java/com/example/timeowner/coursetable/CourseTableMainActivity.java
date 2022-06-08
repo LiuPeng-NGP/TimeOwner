@@ -57,7 +57,7 @@ public class CourseTableMainActivity extends Activity {
         mySubjects = SubjectRepertory.loadDefaultSubjects();
         titleTextView = (TextView) findViewById(R.id.id_title);
         layout = (LinearLayout) findViewById(R.id.id_layout);
-        layout.setOnClickListener((View.OnClickListener) this);
+//        layout.setOnClickListener((View.OnClickListener) this);
         initTimetableView();
         //模拟获取课程数据：自定义格式
         //设置数据源并显示

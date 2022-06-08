@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.timeowner.concentration.ConcentrationMainActivity;
-/*import com.example.timeowner.coursetable.CourseTableMainActivity;*/
+import com.example.timeowner.coursetable.CourseTableMainActivity;
 import com.example.timeowner.databinding.FragmentHomeBinding;
 import com.example.timeowner.event.EventMainActivity;
 import com.example.timeowner.habit.HabitMainActivity;
@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-   /* public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
@@ -84,6 +84,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return root;
     }
 
@@ -91,5 +105,5 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }*/
+    }
 }
