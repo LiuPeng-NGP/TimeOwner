@@ -11,6 +11,6 @@ public class HappinessMainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.happiness_main);
+       setContentView(R.layout.happiness_main);
     }
 }

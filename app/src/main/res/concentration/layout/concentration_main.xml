@@ -2,11 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/p146"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".concentration.ConcentrationMainActivity">
-
 
 
     <ImageView
@@ -14,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/mood"/>
+        android:src="@drawable/mood" />
 
 
     <Chronometer
@@ -35,17 +34,17 @@
             android:id="@+id/Start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
             android:layout_margin="10dp"
+            android:background="@drawable/shape"
             android:text="Start" />
 
         <Button
             android:id="@+id/Stop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
             android:layout_margin="10dp"
             android:layout_marginLeft="15dp"
+            android:background="@drawable/shape"
             android:text="Stop" />
     </LinearLayout>
 
@@ -66,8 +65,8 @@
             android:id="@+id/format"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
             android:layout_marginLeft="15dp"
+            android:background="@drawable/shape"
             android:text="Format" />
     </LinearLayout>
 

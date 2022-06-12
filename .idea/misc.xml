@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/drawable/layout/coursetable_header.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/drawable/menu/popmenu_base_func.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.1" />
@@ -18,6 +19,46 @@
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/layout/target_item_list_done.xml" value="0.1" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_item_list.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_item_list_done.xml" value="0.17916666666666667" />
+
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/drawable/shape.xml" value="0.2465" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/information/drawable/information_drawable.xml" value="0.1235" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.1125" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.4" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.4" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.1125" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.1125" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.19424460431654678" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.1125" />
+        <entry key="..\:/Android/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/14733/AndroidStudioProjects/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
+        <entry key="..\:/Users/14733/Documents/Code/AndroidStudioProjects/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/drawable/drawable/border.xml" value="0.136" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/drawable/drawable/button_style.xml" value="0.136" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/drawable/drawable/underline.xml" value="0.136" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.10520833333333333" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/concentration/layout/concentration_main.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/drawable/coursetable_drawable.xml" value="0.1555" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetable_main.xml" value="0.335" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetalbe_main.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/drawable/roundcorner.xml" value="0.122" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_main.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_main.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.11666666666666667" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_register.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/concentration_layout.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.11" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/values/layout/coursetable_main.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.17916666666666667" />
+
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/target/layout/target_main.xml" value="0.1" />
       </map>
     </option>

@@ -53,11 +53,11 @@ public class DBConnectUser extends DBConnect{
 
     //Update statement
     public void update(User user) {
-        String query = "UPDATE table_user SET user_name = ?," +
-                "user_password = ? " +
-                "user_email = ? " +
-                "user_name = ? " +
-                "user_picture = ? " +
+        String query = "UPDATE table_user SET user_id = ?," +
+                "user_password = ? ," +
+                "user_email = ? ," +
+                "user_name = ? ," +
+                "user_picture = ? ," +
                 "user_recent_channel_id = ? " +
                 "WHERE user_id = ? ";
 
@@ -66,7 +66,8 @@ public class DBConnectUser extends DBConnect{
             //create mysql command
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setString(6,user.getUserID());
+                preparedStatement.setString(7,user.getUserID());
+                preparedStatement.setString(6,user.getUserRecentChannel());
                 preparedStatement.setString(2,user.getUserPassword());
                 preparedStatement.setString(3,user.getUserEmail());
                 preparedStatement.setString(4,user.getUserName());
@@ -183,6 +184,7 @@ public class DBConnectUser extends DBConnect{
                     user.setUserName( resultSet.getString(4));
                     user.setUserPicture(bitmap);
                     user.setUserRecentChannel(resultSet.getString(6));
+                    user.setUserCreateTime(resultSet.getTimestamp(7));
                 }
 
 
