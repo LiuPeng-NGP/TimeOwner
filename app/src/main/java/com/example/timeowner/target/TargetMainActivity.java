@@ -19,8 +19,6 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.temporal.WeekFields;
 
 import java.util.ArrayList;
 import java.util.Calendar;
