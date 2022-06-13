@@ -3,7 +3,7 @@ package com.example.timeowner.object;
 import java.text.SimpleDateFormat;
 
 public class Target {
-    private String targetID;
+    private int targetID;
     private String targetName;
     private String targetStartTime;
     private String targetEndTime;
@@ -11,7 +11,7 @@ public class Target {
     private int targetIsCompleted;
     private String targetUserId;
 
-    public Target(String targetID, String targetName, String targetStartTime, String targetEndTime, String targetDetails, int targetIsCompleted, String targetUserId) {
+    public Target(int targetID, String targetName, String targetStartTime, String targetEndTime, String targetDetails, int targetIsCompleted, String targetUserId) {
         this.targetID = targetID;
         this.targetName = targetName;
         this.targetStartTime = targetStartTime;
@@ -23,11 +23,11 @@ public class Target {
 
     public Target(){}
 
-    public String getTargetID() {
+    public int getTargetID() {
         return targetID;
     }
 
-    public void setTargetID(String targetID) {
+    public void setTargetID(int targetID) {
         this.targetID = targetID;
     }
 

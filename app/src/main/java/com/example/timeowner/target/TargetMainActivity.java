@@ -76,6 +76,7 @@ public class TargetMainActivity extends AppCompatActivity {
         TgCalendar.setSelectedDate(calendar.getTime());//选中单日
         //title显示单日信息
         CalendarDay date = TgCalendar.getSelectedDate();
+        date1 = date;
         title_month.setText(date.getMonth()+ 1 +"月 周"+getWeekOfDate(date));
         dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
@@ -112,7 +113,7 @@ public class TargetMainActivity extends AppCompatActivity {
                 calendarBehavior.setWeekOfMonth(calendar.get(Calendar.WEEK_OF_MONTH));
                 date1 = date;
                 title_month.setText(date.getMonth()+ 1 +"月 周"+getWeekOfDate(date));
-
+                //
             }
         });
     }
@@ -144,12 +145,7 @@ public class TargetMainActivity extends AppCompatActivity {
                         map.put("Is",temp4);
                         list1.add(map);
                     }
-                    //适配器部分
-                    List<String> list2;
-                    list2 = new ArrayList<>();
-                    for (int i = 0; i < list1.size(); i++){
-                        Map<String,Object> map1 = list1.get(i);
-                    }
+
                     rv.setAdapter(new TargetListAdapter(TargetMainActivity.this,list1,date1));
                     RecyclerView.ItemDecoration itemDecoration =
                             new DividerItemDecoration(TargetMainActivity.this, DividerItemDecoration.VERTICAL);
