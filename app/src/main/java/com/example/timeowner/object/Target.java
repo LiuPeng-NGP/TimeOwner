@@ -5,13 +5,13 @@ import java.text.SimpleDateFormat;
 public class Target {
     private String targetID;
     private String targetName;
-    private SimpleDateFormat targetStartTime;
-    private SimpleDateFormat targetEndTime;
+    private String targetStartTime;
+    private String targetEndTime;
     private String targetDetails;
     private int targetIsCompleted;
     private String targetUserId;
 
-    public Target(String targetID, String targetName, SimpleDateFormat targetStartTime, SimpleDateFormat targetEndTime, String targetDetails, int targetIsCompleted, String targetUserId) {
+    public Target(String targetID, String targetName, String targetStartTime, String targetEndTime, String targetDetails, int targetIsCompleted, String targetUserId) {
         this.targetID = targetID;
         this.targetName = targetName;
         this.targetStartTime = targetStartTime;
@@ -20,6 +20,8 @@ public class Target {
         this.targetIsCompleted = targetIsCompleted;
         this.targetUserId = targetUserId;
     }
+
+    public Target(){}
 
     public String getTargetID() {
         return targetID;
@@ -37,19 +39,19 @@ public class Target {
         this.targetName = targetName;
     }
 
-    public SimpleDateFormat getTargetStartTime() {
+    public String getTargetStartTime() {
         return targetStartTime;
     }
 
-    public void setTargetStartTime(SimpleDateFormat targetStartTime) {
+    public void setTargetStartTime(String targetStartTime) {
         this.targetStartTime = targetStartTime;
     }
 
-    public SimpleDateFormat getTargetEndTime() {
+    public String getTargetEndTime() {
         return targetEndTime;
     }
 
-    public void setTargetEndTime(SimpleDateFormat targetEndTime) {
+    public void setTargetEndTime(String targetEndTime) {
         this.targetEndTime = targetEndTime;
     }
 
