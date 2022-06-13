@@ -31,9 +31,13 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
     private final List<String> EList;//end
     private final List<Integer> mDay;
 
+    //不同布局
+    public static final int DO = 1;
+    public static final int NO = 2;
+
     TargetListAdapter(Context context, List<Map<String, Object>> list, CalendarDay date) {
         this.mContext = context;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date1 = null;
         Date date2 = null;
         List<String> list1 = new ArrayList<>();//targetName
@@ -54,7 +58,7 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
             }
             date2 = date.getCalendar().getTime();
             long diff = date1.getTime() - date2.getTime();
-            m = (int)diff;
+            m = (int)diff/(24*60*60*1000);
             list1.add(name);
             list2.add(start);
             list3.add(end);
@@ -69,20 +73,48 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
     @NonNull
     @Override
     public TextHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(mContext)
-                .inflate(R.layout.target_item_list, parent, false);
-        return new TextHolder(itemView);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View inflate;
+        TextHolder holder;
+        if (viewType == NO){
+            inflate = inflater.inflate(R.layout.target_item_list, parent, false);
+        }
+        else {
+            inflate = inflater.inflate(R.layout.target_item_list_done, parent, false);
+        }
+        holder = new TextHolder(inflate);
+//        View itemView = LayoutInflater.from(mContext)
+//                .inflate(R.layout.target_item_list, parent, false);
+//        return new TextHolder(itemView);
+        return holder;
     }
+
+    //
 
     @Override
     public void onBindViewHolder(@NonNull TextHolder holder, int position) {
         holder.textView.setText(mList.get(position));
-        holder.textView_day.setText(mDay.get(position));
+        holder.textView_day.setText(mDay.get(position).toString());
+        //点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0){
+            return NO;
+        }
+        else return DO;
     }
 
     static class TextHolder extends RecyclerView.ViewHolder {

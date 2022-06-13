@@ -40,7 +40,7 @@ public class DBConnectTarget extends DBConnect{
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setString(1,target.getTargetID());
+                preparedStatement.setInt(1,target.getTargetID());
                 preparedStatement.setString(2,target.getTargetName());
                 preparedStatement.setString(3,target.getTargetStartTime());
                 preparedStatement.setString(4,target.getTargetEndTime());
@@ -76,7 +76,7 @@ public class DBConnectTarget extends DBConnect{
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setString(6,target.getTargetID());
+                preparedStatement.setInt(6,target.getTargetID());
                 preparedStatement.setString(1,target.getTargetName());
                 preparedStatement.setString(2,target.getTargetStartTime());
                 preparedStatement.setString(3,target.getTargetEndTime());
@@ -122,27 +122,22 @@ public class DBConnectTarget extends DBConnect{
 
     //Select statement
     public List<Target> selectAll(String id) {
-        String query = "SELECT * FROM table_target WHERE target_user_id = ? ";
+        String query = "SELECT * FROM table_target WHERE target_user_id = ?";
 
         //Create a class[] to store the result
         List<Target> list = new ArrayList<Target>();
-        Target target = new Target();
-
         //Open connection
         if (this.OpenConnection()) {
             try {
                 //Create Command
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-
                 //Create a data reader and Execute the command
-                ResultSet resultSet= preparedStatement.executeQuery(query);
                 preparedStatement.setString(1,id);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-
+                ResultSet resultSet= preparedStatement.executeQuery();
                 //Read the data and store them in the list
                 while (resultSet.next()) {
-                    target.setTargetID(resultSet.getString(1));
+                    Target target = new Target();
+                    target.setTargetID(resultSet.getInt(1));
                     target.setTargetName(resultSet.getString(2));
                     target.setTargetStartTime(resultSet.getString(3));
                     target.setTargetEndTime(resultSet.getString(4));
@@ -151,7 +146,6 @@ public class DBConnectTarget extends DBConnect{
                     target.setTargetUserId(resultSet.getString(7));
 
                     list.add(target);
-
                 }
 
                 //close Data Reader
