@@ -7,35 +7,8 @@
     android:orientation="vertical"
     tools:context=".information.ChangeInformationActivity">
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal">-->
-<!--&lt;!&ndash;        <com.example.timeowner.information.CircleImageView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/information_profile_image"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="80dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="80dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginEnd="20dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:scaleType="centerCrop"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:src="@drawable/robot"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_alignParentEnd="true"/>&ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/information_profile_label"-->
-<!--            android:textSize="18sp"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_alignBaseline="@id/information_profile_image"/>-->
 
 
-<!--    </RelativeLayout>-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey2"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,10 +35,7 @@
             android:layout_marginTop="10dp" />
 
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey2"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,16 +44,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/information_name_label"
+            android:layout_centerInParent="true"
             android:textSize="18sp"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="10dp"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp"/>
-        <TextView
+        <EditText
             android:id="@+id/information_name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:background="@drawable/shape"
             android:text=""
             android:layout_alignParentEnd="true"
             android:textSize="18sp"
@@ -92,10 +64,6 @@
             android:layout_marginTop="10dp" />
 
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey2"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,14 +82,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text=""
             android:layout_alignParentEnd="true"
             android:textSize="18sp"
+            android:text=""
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:drawableRight="@drawable/enter"/>
 
     </RelativeLayout>
+    <Button
+        android:id="@+id/save_information"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/save_label"
+        android:layout_margin="20dp"
+        />
+
 
 
 </LinearLayout>

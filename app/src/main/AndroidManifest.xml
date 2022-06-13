@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeOwner">
         <activity
+            android:name=".information.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
             android:name=".information.ChangeInformationActivity"
             android:exported="false" />
         <activity

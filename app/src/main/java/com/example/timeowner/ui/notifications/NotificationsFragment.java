@@ -148,7 +148,7 @@ public class NotificationsFragment extends Fragment {
             if (result.getResultCode() == Activity.RESULT_OK) {
                 Intent data = result.getData();
                 if (data == null) {
-                    return;
+                   return;
                 } else {
                     Uri uri;
                     uri = data.getData();
@@ -158,12 +158,24 @@ public class NotificationsFragment extends Fragment {
             }
         }
     });
+    //修改信息注册器
+    private ActivityResultLauncher mChangeInfoLaunch = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent data = result.getData();
+                mName = data.getStringExtra(NAME_EXTRA);
+                mNameText.setText("昵称 : " + mName);
+            }
+        }
+    });
 
     //message.what
     private static final int QUERY_USER = 1;
 
     private static final String ACCOUNT_KEY = "my_account";
     public static final String ACCOUNT_EXTRA = "account_extra";
+    public static final String NAME_EXTRA = "my_name";
 
 
     //权限请求
@@ -361,15 +373,15 @@ public class NotificationsFragment extends Fragment {
 //            }
 //        });
         mChangeInfoButton.setVisibility(View.VISIBLE);
-//        mChannelButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //新Activity，修改信息
-//                Intent intent = new Intent(getActivity(), ChangeInformationActivity.class);
-//                intent.putExtra(ACCOUNT_EXTRA, mAccount);
-//                startActivity(intent);
-//            }
-//        });
+        mChangeInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //新Activity，修改信息
+                Intent intent = new Intent(getActivity(), ChangeInformationActivity.class);
+                intent.putExtra(ACCOUNT_EXTRA, mAccount);
+                mChangeInfoLaunch.launch(intent);
+            }
+        });
     }
 
 
@@ -633,10 +645,7 @@ public class NotificationsFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        preferences.edit()
-                .putString(ACCOUNT_KEY, mAccount)
-                .commit();
+
         super.onDestroyView();
         Log.i("CS","onDestroy,account: " + mAccount);
         binding = null;
@@ -644,6 +653,10 @@ public class NotificationsFragment extends Fragment {
 
     @Override
     public void onStop() {
+        SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        preferences.edit()
+                .putString(ACCOUNT_KEY, mAccount)
+                .commit();
         Log.i("CS", "onStop");
         super.onStop();
     }

@@ -22,4 +22,10 @@
     <item name="information_email_label" type="id" />
     <item name="information_profile_label" type="id" />
     <item name="information_profile_image" type="id" />
+    <item name="save_information" type="id" />
+    <item name="change_email_text" type="id" />
+    <item name="change_captcha_entry" type="id" />
+    <item name="change_email_new" type="id" />
+    <item name="confirm_change" type="id" />
+    <item name="change_send_captcha" type="id" />
 </resources>
