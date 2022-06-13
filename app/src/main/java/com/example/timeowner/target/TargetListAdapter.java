@@ -78,6 +78,7 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
         TextHolder holder;
         if (viewType == NO){
             inflate = inflater.inflate(R.layout.target_item_list, parent, false);
+            holder = new TextHolder(inflate);
         }
         else {
             inflate = inflater.inflate(R.layout.target_item_list_done, parent, false);
@@ -127,5 +128,21 @@ public class TargetListAdapter extends RecyclerView.Adapter<TargetListAdapter.Te
             textView = itemView.findViewById(R.id.tv);
             textView_day = itemView.findViewById(R.id.tv_day);
         }
+    }
+
+    public interface OnClickItem {
+        void setClick(View v, int position);
+    }
+
+    private OnClickItem item;
+
+    public void onClick(View v) {
+        if (item != null) {
+            item.setClick(v, (int) v.getTag());
+        }
+    }
+
+    public void setOnClick(OnClickItem item) {
+        this.item = item;
     }
 }

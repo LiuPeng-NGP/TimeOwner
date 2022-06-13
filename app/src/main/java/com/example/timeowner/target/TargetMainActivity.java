@@ -69,7 +69,7 @@ public class TargetMainActivity extends AppCompatActivity {
             calendarBehavior = (CalendarBehavior) behavior;
         }
         //初始 周模式
-        TgCalendar.state().edit().setCalendarDisplayMode(CalendarMode.WEEKS).commit();
+        //TgCalendar.state().edit().setCalendarDisplayMode(CalendarMode.WEEKS).commit();
 
         TgCalendar.setTopbarVisible(false);//隐藏标题栏
         Calendar calendar = Calendar.getInstance();
