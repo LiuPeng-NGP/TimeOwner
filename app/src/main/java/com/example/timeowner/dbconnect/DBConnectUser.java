@@ -176,13 +176,19 @@ public class DBConnectUser extends DBConnect{
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if(resultSet.next()){
                     Blob blob = resultSet.getBlob(5);
-                    int blobLength = (int) blob.length();
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(blob.getBytes(1,blobLength), 0 ,blobLength);
+                    if (blob == null) {
+                        user.setUserPicture(null);
+                    } else {
+                        int blobLength = (int) blob.length();
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(blob.getBytes(1,blobLength), 0 ,blobLength);
+                        user.setUserPicture(bitmap);
+                    }
+
                     user.setUserID(resultSet.getString(1));
                     user.setUserPassword(resultSet.getString(2));
                     user.setUserEmail(resultSet.getString(3));
                     user.setUserName( resultSet.getString(4));
-                    user.setUserPicture(bitmap);
+
                     user.setUserRecentChannel(resultSet.getString(6));
                     user.setUserCreateTime(resultSet.getTimestamp(7));
                 }

@@ -79,7 +79,7 @@ public class NotificationsFragment extends Fragment {
 
 
     //信息变量
-    private String mAccount = "-1";
+    private String mAccount;
     private String mName = "";
     private Bitmap mProfile;
     private String mEmail;
@@ -115,9 +115,6 @@ public class NotificationsFragment extends Fragment {
                         if (mAccount != null) {
                            updateUI();
                         }
-                    } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
-                        mAccount = "-1";
-
                     }
                 }
             });
@@ -208,7 +205,7 @@ public class NotificationsFragment extends Fragment {
 
 
         mAccount = preferences.getString(ACCOUNT_KEY, "-1");
-
+//        Log.e("CS ", mAccount);
 
         mAccountText = binding.accountText;
         mNameText = binding.nameText;
@@ -220,27 +217,24 @@ public class NotificationsFragment extends Fragment {
         mChangAccountLabel = binding.changAccountLabel;
         mAccountManagerLayout = binding.accountManager;
 
-
-        mProfileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mAccount.equals("-1")) {
-                    Intent intent = new Intent(getActivity(), LoginActivity.class);
-                    mRegisterLauncher.launch(intent);
-                } else {
-                    changeProfile(view);
-                }
-            }
-
-            });
-
-
         if (mAccount.equals("-1")) {
             mProfileImage.setVisibility(View.VISIBLE);
             mAccountText.setVisibility(View.VISIBLE);
             mNameText.setVisibility(View.VISIBLE);
             mChannelButton.setVisibility(View.VISIBLE);
             mTimeRecordButton.setVisibility(View.VISIBLE);
+            mProfileImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mAccount.equals("-1")) {
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        mRegisterLauncher.launch(intent);
+                    } else {
+                        changeProfile(view);
+                    }
+                }
+
+            });
         }
 
         if (!mAccount.equals("-1")) {
@@ -269,8 +263,22 @@ public class NotificationsFragment extends Fragment {
                     mNameText.setText("昵称 : " + mName);
                     mNameText.setVisibility(View.VISIBLE);
                     mProfile = user.getUserPicture();
-                    mProfileImage.setImageBitmap(mProfile);
+                    if(mProfile != null){
+                        mProfileImage.setImageBitmap(mProfile);
+                    }
                     mProfileImage.setVisibility(View.VISIBLE);
+                    mProfileImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (mAccount.equals("-1")) {
+                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                mRegisterLauncher.launch(intent);
+                            } else {
+                                changeProfile(view);
+                            }
+                        }
+
+                    });
                     mEmail = user.getUserEmail();
                     mRecentChannel = user.getUserRecentChannel();
                     mCreateTime = user.getUserCreateTime();
