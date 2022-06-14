@@ -7,12 +7,15 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="340dp"
-        android:layout_height="wrap_content">
+        android:layout_gravity="center_vertical"
+        android:layout_height="42sp">
 
         <CheckBox
             android:id="@+id/habit_checkbox"
             android:layout_width="match_parent"
+            android:gravity="left|center_vertical"
             android:layout_height="wrap_content"
+            android:textSize="22sp"
             android:text="" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -23,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="000"
+        android:layout_gravity="center"
         android:autofillHints=""
         android:inputType="text"
         tools:ignore="TextFields" />

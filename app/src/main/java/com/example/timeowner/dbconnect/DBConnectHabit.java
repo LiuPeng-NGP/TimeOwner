@@ -52,8 +52,8 @@ public class DBConnectHabit extends DBConnect{
     //Update statement
     public void update(Habit habit) {
         String query = "UPDATE table_habit SET habit_name = ?," +
-                "habit_count = ? " +
-                "habit_today_is_completed = ? " +
+                "habit_count = ?, " +
+                "habit_today_is_completed = ?, " +
                 "habit_user_id = ? " +
                 "WHERE habit_id = ? ";
 
@@ -63,13 +63,37 @@ public class DBConnectHabit extends DBConnect{
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setInt(6,habit.getHabitID());
+                preparedStatement.setInt(5,habit.getHabitID());
                 preparedStatement.setString(1,habit.getHabitName());
                 preparedStatement.setInt(2,habit.getHabitCount());
-                preparedStatement.setInt(4,habit.getHabitTodayIsCompleted());
-                preparedStatement.setString(5,habit.getHabitUserID());
+                preparedStatement.setInt(3,habit.getHabitTodayIsCompleted());
+                preparedStatement.setString(4,habit.getHabitUserID());
+                //Execute query
+                preparedStatement.execute();
+
+                //close connection
+                this.CloseConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void UpdateEveryDayHabit(String userID) {
+        String query = "UPDATE table_habit SET habit_today_is_completed = ?," +
+                "WHERE habit_user_id = ? ";
+
+        //Open connection
+        if (this.OpenConnection()) {
+            //create mysql command
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+
+                preparedStatement.setInt(1,0);
+                preparedStatement.setString(2,userID);
+
                 //Execute query
                 preparedStatement.execute();
 
