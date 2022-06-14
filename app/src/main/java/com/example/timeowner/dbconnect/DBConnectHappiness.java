@@ -1,6 +1,7 @@
 package com.example.timeowner.dbconnect;
 
 import com.example.timeowner.object.Happiness;
+import com.example.timeowner.object.Happiness;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -128,5 +129,35 @@ public class DBConnectHappiness extends DBConnect{
         } else {
             return list;
         }
+    }
+
+    public Happiness select(int id){
+        String query = "SELECT * FROM table_happiness WHERE happiness_id = ? ";
+        Happiness happiness = new Happiness();
+        //Open connection
+        if (this.OpenConnection()) {
+            //create mysql command
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1,id);
+
+
+                //Execute query
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if(resultSet.next()){
+                    happiness.setHappinessID(resultSet.getInt(1));
+                    happiness.setHappinessText(resultSet.getString(2));
+
+                    return happiness;
+                }
+
+
+                //close connection
+                this.CloseConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return happiness;
     }
 }
