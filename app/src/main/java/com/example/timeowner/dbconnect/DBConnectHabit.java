@@ -107,11 +107,11 @@ public class DBConnectHabit extends DBConnect{
 
 
     //Select statement
-    public List<Habit> selectAll(String habitUserID) {
+    public ArrayList<Habit> selectAll(String habitUserID) {
         String query = "SELECT * FROM table_habit WHERE habit_user_id = ?";
 
         //Create a class[] to store the result
-        List<Habit> list = new ArrayList<Habit>();
+        ArrayList<Habit> list = new ArrayList<Habit>();
         //Open connection
         if (this.OpenConnection()) {
             try {
