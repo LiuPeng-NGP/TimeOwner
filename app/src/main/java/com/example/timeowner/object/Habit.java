@@ -1,17 +1,25 @@
 package com.example.timeowner.object;
 
 public class Habit {
-    private String habitID;
+    private int habitID;
     private String habitName;
     private int habitCount;
     private int habitTodayIsCompleted;
-    private String userID;
+    private String habitUserID;
 
-    public String getHabitID() {
+    public Habit(int habitID, String habitName, int habitCount, int habitTodayIsCompleted, String habitUserID) {
+        this.habitID = habitID;
+        this.habitName = habitName;
+        this.habitCount = habitCount;
+        this.habitTodayIsCompleted = habitTodayIsCompleted;
+        this.habitUserID = habitUserID;
+    }
+
+    public int getHabitID() {
         return habitID;
     }
 
-    public void setHabitID(String habitID) {
+    public void setHabitID(int habitID) {
         this.habitID = habitID;
     }
 
@@ -39,19 +47,11 @@ public class Habit {
         this.habitTodayIsCompleted = habitTodayIsCompleted;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getHabitUserID() {
+        return habitUserID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public Habit(String habitID, String habitName, int habitCount, int habitTodayIsCompleted, String userID) {
-        this.habitID = habitID;
-        this.habitName = habitName;
-        this.habitCount = habitCount;
-        this.habitTodayIsCompleted = habitTodayIsCompleted;
-        this.userID = userID;
+    public void setHabitUserID(String habitUserID) {
+        this.habitUserID = habitUserID;
     }
 }
