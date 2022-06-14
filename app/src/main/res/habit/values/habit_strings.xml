@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hint">Add good habit here!</string>
+    <string name="hint">\t\tAdd good habit here!</string>
     <string name="confirm">CONFIRM</string>
     <string name="cancel">CANCEL</string>
     <string name="habit">Habit</string>
