@@ -19,6 +19,10 @@ public class Event {
         this.eventUserID = eventUserID;
     }
 
+    public Event() {
+
+    }
+
     public int getEventID() {
         return eventID;
     }

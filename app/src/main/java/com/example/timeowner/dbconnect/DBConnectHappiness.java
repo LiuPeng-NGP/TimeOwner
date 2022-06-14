@@ -1,6 +1,6 @@
 package com.example.timeowner.dbconnect;
 
-import com.example.timeowner.object.Concentration;
+import com.example.timeowner.object.Happiness;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBConnectConcentration extends DBConnect{
-    public void insert(Concentration concentration) {
+public class DBConnectHappiness extends DBConnect{
+    public void insert(Happiness happiness) {
 
-        String query = "INSERT INTO table_concentration (concentration_id, " +
-                "concentration_start_time, " +
-                "concentration_end_time, " +
-                "concentration_user_id) " +
-                "VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO table_happiness (happiness_id, " +
+                "happiness_text) " +
+                "VALUES(?, ?)";
 
 
         //open connection
@@ -26,12 +24,10 @@ public class DBConnectConcentration extends DBConnect{
             try {
 
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setInt(1,concentration.getConcentrationID());
-                preparedStatement.setString(2,concentration.getConcentrationStartTime());
-                preparedStatement.setString(3,concentration.getConcentrationEndTime());
-                preparedStatement.setString(4,concentration.getConcentrationUserID());
+
+                preparedStatement.setInt(1,happiness.getHappinessID());
+                preparedStatement.setString(2,happiness.getHappinessText());
 
 
                 //Execute command
@@ -46,11 +42,9 @@ public class DBConnectConcentration extends DBConnect{
     }
 
     //Update statement
-    public void update(Concentration concentration) {
-        String query = "UPDATE table_concentration SET concentration_start_time = ?," +
-                "concentration_end_time, " +
-                "concentration_user_id) " +
-                "WHERE concentration_id = ? ";
+    public void update(Happiness happiness) {
+        String query = "UPDATE table_happiness SET happiness_text = ?," +
+                "WHERE happiness_id = ? ";
 
         //Open connection
         if (this.OpenConnection()) {
@@ -60,11 +54,10 @@ public class DBConnectConcentration extends DBConnect{
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setInt(4,concentration.getConcentrationID());
-                preparedStatement.setString(1,concentration.getConcentrationStartTime());
-                preparedStatement.setString(2,concentration.getConcentrationEndTime());
-                preparedStatement.setString(3,concentration.getConcentrationUserID());
+                preparedStatement.setInt(2,happiness.getHappinessID());
+                preparedStatement.setString(1,happiness.getHappinessText());
 
+                //Execute query
                 preparedStatement.execute();
 
                 //close connection
@@ -76,15 +69,15 @@ public class DBConnectConcentration extends DBConnect{
     }
 
     //Delete statement
-    public void delete(int concentrationId){
-        String query = "DELETE FROM table_concentration WHERE concentration_id = ? ";
+    public void delete(int happinessId){
+        String query = "DELETE FROM table_happiness WHERE happiness_id = ? ";
 
         //Open connection
         if (this.OpenConnection()) {
             //create mysql command
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setInt(1,concentrationId);
+                preparedStatement.setInt(1,happinessId);
 
 
 
@@ -101,28 +94,25 @@ public class DBConnectConcentration extends DBConnect{
 
 
     //Select statement
-    public List<Concentration> selectAll(String concentrationUserID) {
-        String query = "SELECT * FROM table_concentration WHERE concentration_user_id = ?";
+    public List<Happiness> selectAll() {
+        String query = "SELECT * FROM table_happiness";
 
         //Create a class[] to store the result
-        List<Concentration> list = new ArrayList<Concentration>();
+        List<Happiness> list = new ArrayList<Happiness>();
         //Open connection
         if (this.OpenConnection()) {
             try {
                 //Create Command
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 //Create a data reader and Execute the command
-                preparedStatement.setString(1,concentrationUserID);
                 ResultSet resultSet= preparedStatement.executeQuery();
                 //Read the data and store them in the list
                 while (resultSet.next()) {
-                    Concentration concentration = new Concentration();
-                    concentration.setConcentrationID(resultSet.getInt(1));
-                    concentration.setConcentrationStartTime(resultSet.getString(2));
-                    concentration.setConcentrationEndTime(resultSet.getString(3));
-                    concentration.setConcentrationUserID(resultSet.getString(4));
+                    Happiness happiness = new Happiness();
+                    happiness.setHappinessID(resultSet.getInt(1));
+                    happiness.setHappinessText(resultSet.getString(2));
 
-                    list.add(concentration);
+                    list.add(happiness);
                 }
 
                 //close Data Reader

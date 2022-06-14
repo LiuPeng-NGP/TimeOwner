@@ -12,6 +12,10 @@ public class Cuser {
         this.cuserCourseID = cuserCourseID;
     }
 
+    public Cuser() {
+
+    }
+
     public int getCuserID() {
         return cuserID;
     }

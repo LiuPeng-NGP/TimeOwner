@@ -15,6 +15,10 @@ public class Habit {
         this.habitUserID = habitUserID;
     }
 
+    public Habit() {
+
+    }
+
     public int getHabitID() {
         return habitID;
     }

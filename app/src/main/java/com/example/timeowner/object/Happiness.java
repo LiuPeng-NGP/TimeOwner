@@ -9,6 +9,10 @@ public class Happiness {
         this.happinessText = happinessText;
     }
 
+    public Happiness() {
+
+    }
+
     public int getHappinessID() {
         return happinessID;
     }

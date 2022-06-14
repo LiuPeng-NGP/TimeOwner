@@ -13,6 +13,10 @@ public class Concentration {
         this.concentrationUserID = concentrationUserID;
     }
 
+    public Concentration() {
+
+    }
+
     public int getConcentrationID() {
         return concentrationID;
     }

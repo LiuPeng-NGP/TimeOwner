@@ -29,6 +29,10 @@ public class Course {
         this.courseTerm = courseTerm;
     }
 
+    public Course() {
+
+    }
+
     public int getCourseID() {
         return courseID;
     }

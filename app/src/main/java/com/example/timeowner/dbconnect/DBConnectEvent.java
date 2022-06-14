@@ -1,6 +1,6 @@
 package com.example.timeowner.dbconnect;
 
-import com.example.timeowner.object.Concentration;
+import com.example.timeowner.object.Event;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +9,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBConnectConcentration extends DBConnect{
-    public void insert(Concentration concentration) {
+public class DBConnectEvent extends DBConnect{
+    public void insert(Event event) {
 
-        String query = "INSERT INTO table_concentration (concentration_id, " +
-                "concentration_start_time, " +
-                "concentration_end_time, " +
-                "concentration_user_id) " +
-                "VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO table_event (event_id, " +
+                "event_name, " +
+                "event_time, " +
+                "event_details, " +
+                "event_today_is_completed, " +
+                "event_user_id) " +
+                "VALUES(?, ?, ?, ?, ?, ?)";
 
 
         //open connection
@@ -28,11 +30,12 @@ public class DBConnectConcentration extends DBConnect{
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setInt(1,concentration.getConcentrationID());
-                preparedStatement.setString(2,concentration.getConcentrationStartTime());
-                preparedStatement.setString(3,concentration.getConcentrationEndTime());
-                preparedStatement.setString(4,concentration.getConcentrationUserID());
-
+                preparedStatement.setInt(1,event.getEventID());
+                preparedStatement.setString(2,event.getEventName());
+                preparedStatement.setString(3, event.getEventTime());
+                preparedStatement.setString(4, event.getEventDetails());
+                preparedStatement.setInt(5,event.getEventIsCompleted());
+                preparedStatement.setString(6,event.getEventUserID());
 
                 //Execute command
                 preparedStatement.executeUpdate();
@@ -46,11 +49,13 @@ public class DBConnectConcentration extends DBConnect{
     }
 
     //Update statement
-    public void update(Concentration concentration) {
-        String query = "UPDATE table_concentration SET concentration_start_time = ?," +
-                "concentration_end_time, " +
-                "concentration_user_id) " +
-                "WHERE concentration_id = ? ";
+    public void update(Event event) {
+        String query = "UPDATE table_event SET event_name = ?," +
+                "event_time, " +
+                "event_details, " +
+                "event_today_is_completed, " +
+                "event_user_id) " +
+                "WHERE event_id = ? ";
 
         //Open connection
         if (this.OpenConnection()) {
@@ -60,11 +65,13 @@ public class DBConnectConcentration extends DBConnect{
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setInt(4,concentration.getConcentrationID());
-                preparedStatement.setString(1,concentration.getConcentrationStartTime());
-                preparedStatement.setString(2,concentration.getConcentrationEndTime());
-                preparedStatement.setString(3,concentration.getConcentrationUserID());
-
+                preparedStatement.setInt(6,event.getEventID());
+                preparedStatement.setString(1,event.getEventName());
+                preparedStatement.setString(2,event.getEventTime());
+                preparedStatement.setString(3,event.getEventDetails());
+                preparedStatement.setInt(4,event.getEventIsCompleted());
+                preparedStatement.setString(5,event.getEventUserID());
+                //Execute query
                 preparedStatement.execute();
 
                 //close connection
@@ -76,15 +83,15 @@ public class DBConnectConcentration extends DBConnect{
     }
 
     //Delete statement
-    public void delete(int concentrationId){
-        String query = "DELETE FROM table_concentration WHERE concentration_id = ? ";
+    public void delete(int eventId){
+        String query = "DELETE FROM table_event WHERE event_id = ? ";
 
         //Open connection
         if (this.OpenConnection()) {
             //create mysql command
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setInt(1,concentrationId);
+                preparedStatement.setInt(1,eventId);
 
 
 
@@ -101,28 +108,30 @@ public class DBConnectConcentration extends DBConnect{
 
 
     //Select statement
-    public List<Concentration> selectAll(String concentrationUserID) {
-        String query = "SELECT * FROM table_concentration WHERE concentration_user_id = ?";
+    public List<Event> selectAll(String eventUserID) {
+        String query = "SELECT * FROM table_event WHERE event_user_id = ?";
 
         //Create a class[] to store the result
-        List<Concentration> list = new ArrayList<Concentration>();
+        List<Event> list = new ArrayList<Event>();
         //Open connection
         if (this.OpenConnection()) {
             try {
                 //Create Command
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 //Create a data reader and Execute the command
-                preparedStatement.setString(1,concentrationUserID);
+                preparedStatement.setString(1,eventUserID);
                 ResultSet resultSet= preparedStatement.executeQuery();
                 //Read the data and store them in the list
                 while (resultSet.next()) {
-                    Concentration concentration = new Concentration();
-                    concentration.setConcentrationID(resultSet.getInt(1));
-                    concentration.setConcentrationStartTime(resultSet.getString(2));
-                    concentration.setConcentrationEndTime(resultSet.getString(3));
-                    concentration.setConcentrationUserID(resultSet.getString(4));
+                    Event event = new Event();
+                    event.setEventID(resultSet.getInt(1));
+                    event.setEventName(resultSet.getString(2));
+                    event.setEventTime(resultSet.getString(3));
+                    event.setEventDetails(resultSet.getString(4));
+                    event.setEventIsCompleted(resultSet.getInt(5));
+                    event.setEventUserID(resultSet.getString(6));
 
-                    list.add(concentration);
+                    list.add(event);
                 }
 
                 //close Data Reader
