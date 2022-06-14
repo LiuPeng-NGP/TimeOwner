@@ -1,5 +1,9 @@
 package com.example.timeowner.dbconnect;
 
+import static android.content.ContentValues.TAG;
+
+import android.util.Log;
+
 import com.example.timeowner.object.Habit;
 
 import java.sql.PreparedStatement;
@@ -27,7 +31,6 @@ public class DBConnectHabit extends DBConnect{
             try {
 
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
                 preparedStatement.setInt(1,habit.getHabitID());
                 preparedStatement.setString(2,habit.getHabitName());

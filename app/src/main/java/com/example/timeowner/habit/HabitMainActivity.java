@@ -1,9 +1,12 @@
 package com.example.timeowner.habit;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,9 +76,10 @@ public class HabitMainActivity extends Activity {
                         String userID = sharedPreferences.getString("userID",null);
 
 
-                        //Temp
-                        userID="191001";
+//                        //Temp
+//                        userID="191001";
 
+//                        Log.i(TAG, "UserID has transferred to this activity! ");
 
                         Habit habit=new Habit(0,
                                 mAddThings.getText().toString(),
