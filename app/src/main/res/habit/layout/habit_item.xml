@@ -10,15 +10,15 @@
         android:layout_height="wrap_content">
 
         <CheckBox
-            android:id="@+id/checkbox"
+            android:id="@+id/habit_checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <EditText
-        android:id="@+id/edit_text"
+    <TextView
+        android:id="@+id/habit_text_view"
         android:clickable="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
