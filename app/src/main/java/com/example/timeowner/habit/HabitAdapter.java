@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,9 +46,9 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         holder.mCheckBox.setText(habit.getHabitName());
         holder.mHabitCountTextView.setText(String.valueOf(habit.getHabitCount()));
         if(habit.getHabitTodayIsCompleted()>0){
-            holder.mCheckBox.setSelected(true);
+            holder.mCheckBox.setChecked(true);
         }else{
-            holder.mCheckBox.setSelected(false);
+            holder.mCheckBox.setChecked(false);
         }
 
         holder.mCheckBox.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +85,20 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
             }
         });
 
+
+
+
+
+
         holder.mCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+//                Context context = v.getContext();
+//                CharSequence text = "Hello toast!";
+//                int duration = Toast.LENGTH_SHORT;
+//
+//                Toast toast = Toast.makeText(context, text, duration);
+//                toast.show();
 
                 return false;
             }
@@ -101,6 +113,12 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
     public int getItemCount() {
         return habitArrayList.size();
     }
+
+
+
+
+
+
 
     //自定义viewhodler
     class myViewHolder extends RecyclerView.ViewHolder {
@@ -117,6 +135,9 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
             mHabitCountTextView = itemView.findViewById(R.id.habit_text_view);
         }
     }
+
+
+
 
 
 //    //自定义viewhodler

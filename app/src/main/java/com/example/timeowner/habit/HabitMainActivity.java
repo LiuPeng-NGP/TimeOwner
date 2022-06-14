@@ -14,8 +14,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -202,94 +204,92 @@ public class HabitMainActivity extends Activity {
 
             @Override
             public void handleMessage(@NonNull Message msg) {
-                switch (msg.what) {
-                    case UPDATE_TEXT:
+            switch (msg.what) {
+                case UPDATE_TEXT:
 
-                        recyclerView = findViewById(R.id.habit_recycle_view);
-                        // recyclerview的适配器
-                        habitAdapter = new HabitAdapter(context, habitArrayList);
-                        recyclerView.setLayoutManager(
-                                new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-                        // 配置RecyclerView的分割线
-                        recyclerView.addItemDecoration(
-                                new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
-                        recyclerView.setAdapter(habitAdapter);
-
-//        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP) {
-//
-//            @Override
-//            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-//                Toast.makeText(HabitMainActivity.this, "on Move", Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//
-//            @Override
-//            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-//                Toast.makeText(HabitMainActivity.this, "on Swiped ", Toast.LENGTH_SHORT).show();
-//                //Remove swiped item from list and notify the RecyclerView
-//                int position = viewHolder.getAdapterPosition();
-//                habitArrayList.remove(position);
-//                habitAdapter.notifyDataSetChanged();
-//
-//            }
-//        };
-//
-//        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
-//        itemTouchHelper.attachToRecyclerView(recyclerView);
+                    recyclerView = findViewById(R.id.habit_recycle_view);
+                    // recyclerview的适配器
+                    habitAdapter = new HabitAdapter(context, habitArrayList);
+                    recyclerView.setLayoutManager(
+                            new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                    // 配置RecyclerView的分割线
+                    recyclerView.addItemDecoration(
+                            new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+                    recyclerView.setAdapter(habitAdapter);
 
 
-                    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-                        @Override
-                        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                            return false;
+
+                ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+                    @Override
+                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
+                        final int position = viewHolder.getAdapterPosition(); //get position which is swipe
+
+                        if (direction == ItemTouchHelper.LEFT) {    //if swipe left
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(HabitMainActivity.this); //alert for confirm to delete
+                            builder.setMessage("Are you sure to delete?");    //set message
+
+                            builder.setPositiveButton("REMOVE", new DialogInterface.OnClickListener() { //when click on DELETE
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    habitAdapter.notifyItemRemoved(position);    //item removed from recylcerview
+//                            sqldatabase.execSQL("delete from " + TABLE_NAME + " where _id='" + (position + 1) + "'"); //query for delete
+                                    int habitID = habitArrayList.get(position).getHabitID();
+                                    new Thread(new Runnable() {
+                                        @Override
+
+                                        public void run() {
+                                            DBConnectHabit dbConnectHabit = new DBConnectHabit();
+                                            dbConnectHabit.delete(habitID);
+                                        }
+
+
+                                    }).start();
+
+                                    habitArrayList.remove(position);  //then remove item
+
+                                    return;
+                                }
+                            }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    habitAdapter.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
+                                    habitAdapter.notifyItemRangeChanged(position, habitAdapter.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
+                                    return;
+                                }
+                            }).show();  //show alert dialog
                         }
+                    }
+                };
+                ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+                itemTouchHelper.attachToRecyclerView(recyclerView); //set swipe to recylcerview
 
-                        @Override
-                        public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
-                            final int position = viewHolder.getAdapterPosition(); //get position which is swipe
+                recyclerView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                    @Override
+                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
 
-                            if (direction == ItemTouchHelper.LEFT) {    //if swipe left
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(HabitMainActivity.this); //alert for confirm to delete
-                                builder.setMessage("Are you sure to delete?");    //set message
-
-                                builder.setPositiveButton("REMOVE", new DialogInterface.OnClickListener() { //when click on DELETE
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        habitAdapter.notifyItemRemoved(position);    //item removed from recylcerview
-    //                            sqldatabase.execSQL("delete from " + TABLE_NAME + " where _id='" + (position + 1) + "'"); //query for delete
-                                        int habitID = habitArrayList.get(position).getHabitID();
-                                        new Thread(new Runnable() {
-                                            @Override
-
-                                            public void run() {
-                                                DBConnectHabit dbConnectHabit = new DBConnectHabit();
-                                                dbConnectHabit.delete(habitID);
-                                            }
+                        menu.add("change").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
 
 
-                                        }).start();
 
-                                        habitArrayList.remove(position);  //then remove item
 
-                                        return;
-                                    }
-                                }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        habitAdapter.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.
-                                        habitAdapter.notifyItemRangeChanged(position, habitAdapter.getItemCount());   //notifies the RecyclerView Adapter that positions of element in adapter has been changed from position(removed element index to end of list), please update it.
-                                        return;
-                                    }
-                                }).show();  //show alert dialog
+                                return true;
                             }
-                        }
-                    };
-                    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-                    itemTouchHelper.attachToRecyclerView(recyclerView); //set swipe to recylcerview
-                    super.handleMessage(msg);
-                }
+                        });
+                    }
+                });
 
+
+                super.handleMessage(msg);
+
+            }
             }
 
 
