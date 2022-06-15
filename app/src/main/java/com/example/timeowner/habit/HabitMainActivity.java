@@ -13,6 +13,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Gravity;
@@ -170,7 +173,7 @@ public class HabitMainActivity extends Activity {
 
 
 
-                    });
+                });
 
 
                 mCancelButton.setOnClickListener(new View.OnClickListener() {
@@ -269,22 +272,30 @@ public class HabitMainActivity extends Activity {
                 ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
                 itemTouchHelper.attachToRecyclerView(recyclerView); //set swipe to recylcerview
 
-                recyclerView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-                    @Override
-                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-
-                        menu.add("change").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem item) {
-
-
-
-
-                                return true;
-                            }
-                        });
-                    }
-                });
+//                recyclerView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+//                    @Override
+//                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+//                        menu.add("change");
+////                        SpannableString spanString = new SpannableString(menu.getItem(0).getTitle().toString());
+////                        int end = spanString.length();
+////                        spanString.setSpan(new RelativeSizeSpan(0.75f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+////
+////                        menu.getItem(0).setTitle(spanString);
+//
+//                        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//                            @Override
+//                            public boolean onMenuItemClick(MenuItem item) {
+//
+//
+//
+//
+//
+//
+//                                return true;
+//                            }
+//                        });
+//                    }
+//                });
 
 
                 super.handleMessage(msg);

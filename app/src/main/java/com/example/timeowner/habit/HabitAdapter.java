@@ -2,12 +2,22 @@ package com.example.timeowner.habit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
 import android.os.Message;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.view.ContextMenu;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +60,10 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         }else{
             holder.mCheckBox.setChecked(false);
         }
+
+
+
+
 
         holder.mCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +114,140 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
 //                Toast toast = Toast.makeText(context, text, duration);
 //                toast.show();
 
+
+                holder.mCheckBox.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                    @Override
+                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                        menu.add("change");
+                        SpannableString spanString = new SpannableString(menu.getItem(0).getTitle().toString());
+                        int end = spanString.length();
+                        spanString.setSpan(new RelativeSizeSpan(1.15f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        menu.getItem(0).setTitle(spanString);
+
+                        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+
+
+
+
+
+
+                                return true;
+                            }
+                        });
+                    }
+                });
+
+
+//                holder.mCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
+//                    @Override
+//                    public boolean onLongClick(View v) {
+//
+//
+//
+//                        // inflate the layout of the popup window
+//                        LayoutInflater inflater = (LayoutInflater)
+//                                context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+//                        View popupView = inflater.inflate(R.layout.habit_change, null);
+//
+//                        // create the popup window
+//                        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+//                        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+//                        boolean focusable = true; // lets taps outside the popup also dismiss it
+//                        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+//                        // show the popup window
+//                        // which view you pass in doesn't matter, it is only used for the window tolken
+//                        popupWindow.update();
+//
+////                        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+////                        popupWindow.showAtLocation(holder.itemView, Gravity.NO_GRAVITY, (int)holder.itemView.getX(), (int)holder.itemView.getY() - holder.itemView.getMeasuredHeight());
+//                        popupWindow.showAtLocation(holder.itemView, Gravity.NO_GRAVITY, (int)holder.itemView.getX(), (int)holder.itemView.getY());
+//                        popupWindow.setFocusable(true);
+//                        popupWindow.setTouchable(true);
+//
+//                        Button mChangeHabit = (Button) popupView.findViewById(R.id.habit_change);
+//
+//
+////                        mChangeHabit.setOnClickListener(new View.OnClickListener() {
+////                            @Override
+////                            public void onClick(View v) {
+////
+////
+////
+////
+////                                Habit changeUpdateHabit =new Habit(habit.getHabitID(),
+////                                        height.getText().toString(),
+////                                        0,
+////                                        0,
+////                                        userID);
+////
+////
+////
+////
+////                                @SuppressLint("HandlerLeak") Handler handler = new Handler() {
+////
+////                                    @Override
+////                                    public void handleMessage(@NonNull Message msg) {
+////                                        switch (msg.what) {
+////                                            case UPDATE_TEXT:
+////                                                popupWindow.dismiss();
+//////                                        HabitShow();
+////                                                habitArrayList.add(addNewHabit);
+////                                                habitAdapter.notifyDataSetChanged();
+////
+////                                                super.handleMessage(msg);
+////                                        }
+////
+////                                    }
+////
+////
+////                                };
+////
+////
+////                                new Thread(new Runnable() {
+////                                    @Override
+////                                    public void run() {
+////                                        DBConnectHabit dbConnectHabit = new DBConnectHabit();
+////
+////                                        Habit habit=new Habit(0,
+////                                                mAddThings.getText().toString(),
+////                                                0,
+////                                                0,
+////                                                userID);
+////
+////
+////                                        dbConnectHabit.insert(habit);
+////
+////
+////
+////                                        Message msg = new Message();
+////                                        msg.what = UPDATE_TEXT;
+////                                        handler.sendMessage(msg);
+////                                        try {
+////                                            Thread.sleep(100);
+////                                        } catch (InterruptedException e) {
+////                                            Thread.currentThread().interrupt();
+////                                        }
+////                                    }
+////                                }).start();
+////                            }
+////
+////
+//////                        //Temp
+//////                        userID="191001";
+////
+//////                        Log.i(TAG, "UserID has transferred to this activity! ");
+////
+////
+////                        });
+//
+//
+//
+//                        return false;
+//                    }
+//                });
                 return false;
             }
         });
