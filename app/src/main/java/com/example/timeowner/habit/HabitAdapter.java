@@ -1,5 +1,7 @@
 package com.example.timeowner.habit;
 
+import static com.example.timeowner.target.TargetMainActivity.UPDATE_TEXT;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
@@ -128,6 +130,105 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                         menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
+
+                                // inflate the layout of the popup window
+                                LayoutInflater inflater = (LayoutInflater)
+                                        context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+                                View popupView = inflater.inflate(R.layout.add_things, null);
+
+                                // create the popup window
+                                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                                boolean focusable = true; // lets taps outside the popup also dismiss it
+                                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+                                // show the popup window
+                                // which view you pass in doesn't matter, it is only used for the window tolken
+                                popupWindow.update();
+                                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+                                popupWindow.setFocusable(true);
+                                popupWindow.setTouchable(true);
+
+
+                                EditText mChangeThingsEditText = (EditText) popupView.findViewById(R.id.habit_add_things_edit_text);
+                                Button mSureButton = (Button) popupView.findViewById(R.id.habit_sure_button);
+                                Button mCancelButton = (Button) popupView.findViewById(R.id.habit_cancel_button);
+
+
+                                mSureButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+
+
+
+
+
+                                        @SuppressLint("HandlerLeak") Handler handler = new Handler() {
+
+                                            @Override
+                                            public void handleMessage(@NonNull Message msg) {
+                                                switch (msg.what) {
+                                                    case UPDATE_TEXT:
+                                                        popupWindow.dismiss();
+//                                        HabitShow();
+                                                        habitArrayList.get(holder.getPosition()).setHabitName(mChangeThingsEditText.getText().toString());
+                                                        holder.mCheckBox.setText(mChangeThingsEditText.getText().toString());
+
+                                                        super.handleMessage(msg);
+                                                }
+
+                                            }
+
+
+                                        };
+
+
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                DBConnectHabit dbConnectHabit = new DBConnectHabit();
+
+
+                                                habit.setHabitName(mChangeThingsEditText.getText().toString());
+
+                                                dbConnectHabit.update(habit);
+
+
+
+                                                Message msg = new Message();
+                                                msg.what = UPDATE_TEXT;
+                                                handler.sendMessage(msg);
+                                                try {
+                                                    Thread.sleep(100);
+                                                } catch (InterruptedException e) {
+                                                    Thread.currentThread().interrupt();
+                                                }
+                                            }
+                                        }).start();
+                                    }
+
+
+//                        //Temp
+//                        userID="191001";
+
+//                        Log.i(TAG, "UserID has transferred to this activity! ");
+
+
+
+
+
+
+
+
+                                });
+
+
+                                mCancelButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        popupWindow.dismiss();
+                                    }
+                                });
 
 
 
