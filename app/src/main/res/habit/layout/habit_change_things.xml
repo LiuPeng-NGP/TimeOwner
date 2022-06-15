@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/habit_drawable"
+    android:foregroundGravity="center"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/habit_change_things_edit_text"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/habit_drawable"
+        android:clickable="true"
+        android:focusable="true"
+        android:textColorHighlight="@color/white"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:hint="@string/habit_change_hint"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="@color/grey2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/habit_sure_button"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="16sp"
+        android:gravity="center"
+
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:text="@string/confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/habit_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

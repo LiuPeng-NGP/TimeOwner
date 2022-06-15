@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/event_name"
+        android:clickable="false"
+        android:textSize="28dp"
+        android:gravity="left|center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/event_item_hint"
+        android:layout_gravity="left"
+        android:inputType="text"
+        tools:ignore="TextFields" />
+
+</LinearLayout>

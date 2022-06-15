@@ -5,30 +5,20 @@ import static android.content.ContentValues.TAG;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.RelativeSizeSpan;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -44,7 +34,7 @@ import com.example.timeowner.object.Habit;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class HabitMainActivity extends Activity {
 
@@ -55,6 +45,7 @@ public class HabitMainActivity extends Activity {
     ArrayList<Habit> habitArrayList = new ArrayList<Habit>();
     private String userID;
     private HabitAdapter habitAdapter;
+    private int mWhereIfCompletedPartition;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +67,7 @@ public class HabitMainActivity extends Activity {
                 // inflate the layout of the popup window
                 LayoutInflater inflater = (LayoutInflater)
                         getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = inflater.inflate(R.layout.add_things, null);
+                View popupView = inflater.inflate(R.layout.habit_add_things, null);
 
                 // create the popup window
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
@@ -99,7 +90,6 @@ public class HabitMainActivity extends Activity {
                 mSureButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
 
 
 
@@ -158,7 +148,88 @@ public class HabitMainActivity extends Activity {
                                 }
                             }
                         }).start();
+
+//                        if ( mAddThings.getText() != null && mAddThings.getText().equals("")){
+//                            Habit addNewHabit =new Habit(0,
+//                                    mAddThings.getText().toString(),
+//                                    0,
+//                                    0,
+//                                    userID);
+//
+//
+//
+//
+//                            @SuppressLint("HandlerLeak") Handler handler = new Handler() {
+//
+//                                @Override
+//                                public void handleMessage(@NonNull Message msg) {
+//                                    switch (msg.what) {
+//                                        case UPDATE_TEXT:
+//                                            popupWindow.dismiss();
+////                                        HabitShow();
+//                                            habitArrayList.add(addNewHabit);
+//                                            habitAdapter.notifyDataSetChanged();
+//
+//                                            super.handleMessage(msg);
+//                                    }
+//
+//                                }
+//
+//
+//                            };
+//
+//
+//                            new Thread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    DBConnectHabit dbConnectHabit = new DBConnectHabit();
+//
+//                                    Habit habit=new Habit(0,
+//                                            mAddThings.getText().toString(),
+//                                            0,
+//                                            0,
+//                                            userID);
+//
+//
+//                                    dbConnectHabit.insert(habit);
+//
+//
+//
+//                                    Message msg = new Message();
+//                                    msg.what = UPDATE_TEXT;
+//                                    handler.sendMessage(msg);
+//                                    try {
+//                                        Thread.sleep(100);
+//                                    } catch (InterruptedException e) {
+//                                        Thread.currentThread().interrupt();
+//                                    }
+//                                }
+//                            }).start();
+//                        }else {
+//
+////                            Context context = getApplicationContext();
+////                            CharSequence text = "Please input habit's name!";
+////                            int duration = Toast.LENGTH_SHORT;
+////                            Log.i(TAG, "toast11111111: ");
+////
+////                            Toast toast = Toast.makeText(context
+////                                    , text, duration);
+////                            toast.show();
+//
+//                            popupWindow.dismiss();
+//
+//
+//
+////                            Context context = v.getContext();
+////                            CharSequence text = "Hello toast!";
+////                            int duration = Toast.LENGTH_SHORT;
+////
+////                            Toast toast = Toast.makeText(context, text, duration);
+////                            toast.show();
+//                        }
                     }
+
+
 
 
 //                        //Temp
@@ -212,7 +283,7 @@ public class HabitMainActivity extends Activity {
 
                     recyclerView = findViewById(R.id.habit_recycle_view);
                     // recyclerview的适配器
-                    habitAdapter = new HabitAdapter(context, habitArrayList);
+                        habitAdapter = new HabitAdapter(context, habitArrayList);
                     recyclerView.setLayoutManager(
                             new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                     // 配置RecyclerView的分割线
@@ -312,6 +383,7 @@ public class HabitMainActivity extends Activity {
             public void run() {
                 DBConnectHabit dbConnectHabit = new DBConnectHabit();
                 habitArrayList = dbConnectHabit.selectAll(userID);
+//                Collections.sort(habitArrayList,(habit1,habit2)->Integer.compare(habit1.getHabitTodayIsCompleted(), habit2.getHabitTodayIsCompleted()));
 
                 Message msg = new Message();
                 msg.what = UPDATE_TEXT;

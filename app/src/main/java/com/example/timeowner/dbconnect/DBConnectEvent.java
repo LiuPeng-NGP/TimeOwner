@@ -14,11 +14,8 @@ public class DBConnectEvent extends DBConnect{
 
         String query = "INSERT INTO table_event (event_id, " +
                 "event_name, " +
-                "event_time, " +
-                "event_details, " +
-                "event_today_is_completed, " +
                 "event_user_id) " +
-                "VALUES(?, ?, ?, ?, ?, ?)";
+                "VALUES(?, ?, ?)";
 
 
         //open connection
@@ -32,10 +29,7 @@ public class DBConnectEvent extends DBConnect{
 
                 preparedStatement.setInt(1,event.getEventID());
                 preparedStatement.setString(2,event.getEventName());
-                preparedStatement.setString(3, event.getEventTime());
-                preparedStatement.setString(4, event.getEventDetails());
-                preparedStatement.setInt(5,event.getEventIsCompleted());
-                preparedStatement.setString(6,event.getEventUserID());
+                preparedStatement.setString(3,event.getEventUserID());
 
                 //Execute command
                 preparedStatement.executeUpdate();
@@ -51,9 +45,6 @@ public class DBConnectEvent extends DBConnect{
     //Update statement
     public void update(Event event) {
         String query = "UPDATE table_event SET event_name = ?," +
-                "event_time, " +
-                "event_details, " +
-                "event_today_is_completed, " +
                 "event_user_id) " +
                 "WHERE event_id = ? ";
 
@@ -63,14 +54,10 @@ public class DBConnectEvent extends DBConnect{
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                preparedStatement.setInt(6,event.getEventID());
+                preparedStatement.setInt(3,event.getEventID());
                 preparedStatement.setString(1,event.getEventName());
-                preparedStatement.setString(2,event.getEventTime());
-                preparedStatement.setString(3,event.getEventDetails());
-                preparedStatement.setInt(4,event.getEventIsCompleted());
-                preparedStatement.setString(5,event.getEventUserID());
+                preparedStatement.setString(2,event.getEventUserID());
                 //Execute query
                 preparedStatement.execute();
 
@@ -108,11 +95,11 @@ public class DBConnectEvent extends DBConnect{
 
 
     //Select statement
-    public List<Event> selectAll(String eventUserID) {
+    public ArrayList<Event> selectAll(String eventUserID) {
         String query = "SELECT * FROM table_event WHERE event_user_id = ?";
 
         //Create a class[] to store the result
-        List<Event> list = new ArrayList<Event>();
+        ArrayList<Event> list = new ArrayList<Event>();
         //Open connection
         if (this.OpenConnection()) {
             try {
@@ -126,10 +113,7 @@ public class DBConnectEvent extends DBConnect{
                     Event event = new Event();
                     event.setEventID(resultSet.getInt(1));
                     event.setEventName(resultSet.getString(2));
-                    event.setEventTime(resultSet.getString(3));
-                    event.setEventDetails(resultSet.getString(4));
-                    event.setEventIsCompleted(resultSet.getInt(5));
-                    event.setEventUserID(resultSet.getString(6));
+                    event.setEventUserID(resultSet.getString(3));
 
                     list.add(event);
                 }

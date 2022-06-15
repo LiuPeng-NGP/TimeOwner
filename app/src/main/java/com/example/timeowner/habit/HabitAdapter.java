@@ -21,7 +21,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,9 +42,14 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         this.habitArrayList = habitArrayList;
     }
 
+
+
+
+
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        if (viewType==)
         View itemView = View.inflate(context, R.layout.habit_item, null);
         return new myViewHolder(itemView);
     }
@@ -62,10 +66,6 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         }else{
             holder.mCheckBox.setChecked(false);
         }
-
-
-
-
 
         holder.mCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +134,7 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                                 // inflate the layout of the popup window
                                 LayoutInflater inflater = (LayoutInflater)
                                         context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-                                View popupView = inflater.inflate(R.layout.add_things, null);
+                                View popupView = inflater.inflate(R.layout.habit_change_things, null);
 
                                 // create the popup window
                                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
@@ -143,13 +143,15 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                                 final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
                                 // show the popup window
                                 // which view you pass in doesn't matter, it is only used for the window tolken
+
+
                                 popupWindow.update();
                                 popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
                                 popupWindow.setFocusable(true);
                                 popupWindow.setTouchable(true);
 
 
-                                EditText mChangeThingsEditText = (EditText) popupView.findViewById(R.id.habit_add_things_edit_text);
+                                EditText mChangeThingsEditText = (EditText) popupView.findViewById(R.id.habit_change_things_edit_text);
                                 Button mSureButton = (Button) popupView.findViewById(R.id.habit_sure_button);
                                 Button mCancelButton = (Button) popupView.findViewById(R.id.habit_cancel_button);
 

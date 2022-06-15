@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/habit_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autofillHints=""
+        android:clickable="false"
+        android:gravity="left|bottom"
+        android:inputType="text"
+        android:text="\tTO DO"
+        tools:ignore="TextFields" />
+
+</LinearLayout>
