@@ -1,94 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"><![CDATA[
-
-    android:contentDescription="@string/target" />
-
-
-
-
-
-    tools:ignore="HardcodedText,MissingConstraints"
-    android:contentDescription="Habit" />
-
-
-
-    ]]>
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="133dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:layout_gravity="center"
         android:background="@drawable/round_corner"
+        android:contentDescription="@string/target"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/target_180x180"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/target_180x180" />
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="133dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/habit_180x180"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="HardcodedText,MissingConstraints"
+        android:contentDescription="Habit" />
 
     <ImageButton
         android:id="@+id/imageButton5"
-        android:layout_width="133dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="32dp"
+        android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-        app:srcCompat="@drawable/coursetable_180x180" />
-    app:srcCompat="@drawable/coursetable_180x180"
-    android:contentDescription="@string/course_table" />
+        app:srcCompat="@drawable/coursetable_180x180"
+        android:contentDescription="@string/course_table" />
 
     <ImageButton
         android:id="@+id/imageButton6"
-        android:layout_width="133dp"
-        android:layout_height="133dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-        app:srcCompat="@drawable/event_180x180" />
-    app:srcCompat="@drawable/event_180x180"
-    android:contentDescription="@string/events" />
+        app:srcCompat="@drawable/event_180x180"
+        android:contentDescription="@string/events" />
 
     <ImageButton
         android:id="@+id/imageButton7"
-        android:layout_width="133dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5"
-        app:srcCompat="@drawable/concentration_180x180" />
-    app:srcCompat="@drawable/concentration_180x180"
-    android:contentDescription="@string/concentration" />
+        app:srcCompat="@drawable/concentration_180x180"
+        android:contentDescription="@string/concentration" />
 
     <ImageButton
         android:id="@+id/imageButton8"
-        android:layout_width="133dp"
-        android:layout_height="133dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6"
-        app:srcCompat="@drawable/happiness_180x180" />
-    app:srcCompat="@drawable/happiness_180x180"
-    android:contentDescription="@string/happiness" />
+        app:srcCompat="@drawable/happiness_180x180"
+        android:contentDescription="@string/happiness" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
