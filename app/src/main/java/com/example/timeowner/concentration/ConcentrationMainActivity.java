@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.timeowner.R;
 
-public class ConcentrationMainActivity extends AppCompatActivity implements View.OnClickListener,Chronometer.OnChronometerTickListener{
+public class  ConcentrationMainActivity extends AppCompatActivity implements View.OnClickListener,Chronometer.OnChronometerTickListener{
 
     private Chronometer chronometer;
     private Button start,stop,reset,format;

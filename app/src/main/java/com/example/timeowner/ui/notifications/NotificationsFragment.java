@@ -239,7 +239,7 @@ public class NotificationsFragment extends Fragment {
         mFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
-        SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
 
 
         mAccount = preferences.getString(ACCOUNT_KEY, "-1");
