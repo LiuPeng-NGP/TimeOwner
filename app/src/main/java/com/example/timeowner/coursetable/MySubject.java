@@ -15,18 +15,24 @@ import java.util.Map;
 
 public class MySubject implements ScheduleEnable {
 
-    String name = "";//课程名
-    int day = 0;//周几上
-    String room = "";//教室
-    int start = 0;//第几周开始
-    int step = 0;//持续节数
-    String teacher = "";//老师
+    String name;//课程名
+    int day;//周几上
+    String room ;//教室
+    int start;//第几节
+    int step;//持续节数
+    String teacher ;//老师
     List<Integer> weekList = new ArrayList<>();//上课周表
-    int colorRandom = 0;//课程颜色
-    //Map表,包含学分、课程号、类型、学期
-    Map<String,Object> extras=new HashMap<>();
+    int colorRandom;//课程颜色
+    //Map表,包含学分、用户ID、类型、学期
+//    Map<String,Object> extras=new HashMap<>();
+//    int credit;
+//    int type;
+//    String userId;
+//    String term;
+    //对应key
 
-    public MySubject(int day,String name,String room,int start,int step,String teacher,List<Integer> weekList,int colorRandom,Map<String,Object> extras){
+
+    public MySubject(int day,String name,String room,int start,int step,String teacher,List<Integer> weekList,int colorRandom){
         super();
         this.day = day;
         this.name = name;
@@ -36,7 +42,14 @@ public class MySubject implements ScheduleEnable {
         this.teacher = teacher;
         this.weekList = weekList;
         this.colorRandom = colorRandom;
-        this.extras = extras;
+//        this.credit = credit;
+//        this.type = type;
+//        this.userId = userId;
+//        this.term = term;
+    }
+
+    public MySubject(){
+        //TODO Auto-generated constructor stub
     }
 
     public int getColorRandom() {//随机选取，但要保证不同
@@ -104,30 +117,53 @@ public class MySubject implements ScheduleEnable {
         this.day = day;
     }
 
-    public Map<String, Object> getExtra() {
-        int credit = 0;
-        int type = 0;
-        String courseId = "";
-        String term = "";
-        extras.put("credit",credit);
-        extras.put("type",type);
-        extras.put("courseId",courseId);
-        extras.put("term",term);
-        return extras;
-    }
+//    public int getCredit() {
+//        return credit;
+//    }
+//
+//    public void setCredit(int credit) {
+//        this.credit = credit;
+//    }
+//
+//    public int getType() {
+//        return type;
+//    }
+
+//    public void setType(int type) {
+//        this.type = type;
+//    }
+//
+//    public String getTerm() {
+//        return term;
+//    }
+//
+//    public void setTerm(String term) {
+//        this.term = term;
+//    }
+//
+//    public String getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(String userId) {
+//        this.userId = userId;
+//    }
 
     @Override
     public Schedule getSchedule() {
         Schedule schedule = new Schedule();
-        schedule.setDay(getDay());
         schedule.setName(getName());
+        schedule.setDay(getDay());
         schedule.setRoom(getRoom());
         schedule.setStart(getStart());
         schedule.setStep(getStep());
         schedule.setTeacher(getTeacher());
         schedule.setWeekList(getWeekList());
         schedule.setColorRandom(getColorRandom());
-        schedule.setExtras(getExtra());
+//        schedule.putExtras("credit",getCredit());
+//        schedule.putExtras("type",getType());
+//        schedule.putExtras("userId",getUserId());
+//        schedule.putExtras("term",getTerm());
         return schedule;
     }
 }

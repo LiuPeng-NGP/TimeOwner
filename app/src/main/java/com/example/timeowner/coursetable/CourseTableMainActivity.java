@@ -1,11 +1,16 @@
 package com.example.timeowner.coursetable;
 
+import static java.sql.DriverManager.println;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,9 +19,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.timeowner.R;
+import com.example.timeowner.dbconnect.DBConnectCourseTable;
 import com.zhuangfei.timetable.TimetableView;
 import com.zhuangfei.timetable.listener.ISchedule;
 import com.zhuangfei.timetable.listener.IWeekView;
@@ -25,6 +32,7 @@ import com.zhuangfei.timetable.listener.OnSlideBuildAdapter;
 import com.zhuangfei.timetable.model.Schedule;
 import com.zhuangfei.timetable.view.WeekView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,41 +43,106 @@ public class CourseTableMainActivity extends Activity {
 
     WeekView mWeekView;
     TimetableView mTimetableView;
-    List<MySubject> mySubjects;
+    List<MySubject> mySubjects = new ArrayList<>();
     Button moreButton;
     LinearLayout layout;
     TextView titleTextView;
     int target = -1;
+
+    //获取数据部分
+    public static final int UPDATE_TEXT = 1;
+    public static List<MySubject> list1 =new ArrayList<MySubject>();
+    List<MySubject> courses =new ArrayList<MySubject>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coursetable_main);
 
-//        moreButton = (Button) findViewById(R.id.id_more);
-//        moreButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showPopmenu();
-//            }
-//        });
+        moreButton = (Button) findViewById(R.id.id_more);
+        moreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopmenu();
+            }
+        });
         //初始化
-        mySubjects = SubjectRepertory.loadDefaultSubjects();
+//        mySubjects = SubjectRepertory.loadDefaultSubjects();
+        //获取数据
+
+        @SuppressLint("HandlerLeak") Handler handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                if (msg.what == UPDATE_TEXT){
+                    list1 = (List<MySubject>) msg.obj;
+
+//                    int a = list1.size();
+//                    println(a+"");
+//                    println("\n");
+
+                    for (int i = 0; i < list1.size();i++){
+                        String temp1 = list1.get(i).getName();
+                        int temp2 = list1.get(i).getDay();
+                        String temp3 = list1.get(i).getRoom();
+                        int temp4 = list1.get(i).getStart();
+                        int temp5 = list1.get(i).getStep();
+                        String temp6 = list1.get(i).getTeacher();
+                        String temp7 = turnToString(list1.get(i).getWeekList());
+                        int temp8 = list1.get(i).getColorRandom();
+//                        int temp9 = list1.get(i).getCredit();
+//                        int temp10 = list1.get(i).getType();
+//                        String temp11 = list1.get(i).getUserId();
+//                        String temp12 = list1.get(i).getTerm();
+
+                        MySubject list = new MySubject(temp2,temp1,temp3,temp4,temp5,temp6,getWeekList(temp7),temp8);
+
+                        courses.add(list);
+                    }
+
+                }
+            }
+        };
+        //线程
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DBConnectCourseTable dbc = new DBConnectCourseTable();
+                list1 = dbc.select();
+
+                Message msg = new Message();
+                msg.what = UPDATE_TEXT;
+                msg.obj = list1;
+                handler.sendMessage(msg);
+
+                try{
+                    Thread.sleep(100);
+                }catch (InterruptedException e){
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }).start();
+
+
+        //测试
+//        println(mySubjects.size()+"");
+//        String s1 = mySubjects.get(0).name;
+//        println(s1);
+
         titleTextView = (TextView) findViewById(R.id.id_title);
         layout = (LinearLayout) findViewById(R.id.id_layout);
 //        layout.setOnClickListener((View.OnClickListener) this);
-        initTimetableView();
         //模拟获取课程数据：自定义格式
         //设置数据源并显示
         mWeekView = (WeekView) findViewById(R.id.weekView);
         mTimetableView = (TimetableView) findViewById(R.id.timetableView);
 
-        //模拟获取课程数据：自定义格式
+        initTimetableView();
+
     }
 
     private void initTimetableView() {
         //设置周次选择属性
-        mWeekView.source(mySubjects)
+        mWeekView.source(courses)
                 .curWeek(getLocalWeek())
                 .callback(new IWeekView.OnWeekItemClickedListener() {
                     @Override
@@ -92,7 +165,7 @@ public class CourseTableMainActivity extends Activity {
 
         mTimetableView.source(mySubjects)
                 .curWeek(getLocalWeek())
-                .curTerm("")
+                .curTerm("大三下学期")
                 .maxSlideItem(16)
                 .monthWidthDp(30)
                 //透明度
@@ -117,7 +190,7 @@ public class CourseTableMainActivity extends Activity {
                 .callback(new ISchedule.OnWeekChangedListener() {
                     @Override
                     public void onWeekChanged(int curWeek) {
-                        //titleTextView.setText("第" + curWeek + "周");
+                        titleTextView.setText("第" + curWeek + "周");
                     }
                 })
                 //旗标布局点击监听
@@ -127,7 +200,7 @@ public class CourseTableMainActivity extends Activity {
                         mTimetableView.hideFlaglayout();
                         //待操作
                         Toast.makeText(CourseTableMainActivity.this,
-                                "点击了旗标:周" + (day + 1) + ",第" + start + "节",
+                                "周" + (day + 1) + ",第" + start + "节",
                                 Toast.LENGTH_SHORT).show();
                     }
                 })
@@ -141,7 +214,7 @@ public class CourseTableMainActivity extends Activity {
         SharedPreferences preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
 
         int startWeek = preferences.getInt("weekNumber",-1);//，起始周从SharedPreferences获取
-        if(startWeek<=17){
+        if(startWeek<=20){
             String startDay=preferences.getString("date","");//起始周的星期一，从SharedPreferences获取，为yyyy-MM-dd格式
 //            String endDay= CalendarUtil.getMondayOfWeek();//当前周的星期一，为yyyy-MM-dd格式
             String endDay= CalendarUtil.getMondayOfWeek2();//当前周的星期一，为yyyy-MM-dd格式
@@ -444,5 +517,46 @@ public class CourseTableMainActivity extends Activity {
         }
     }
 
+    //List转String
+    public static String turnToString(List<Integer> list){
+        StringBuilder s = new StringBuilder();
+        int len = list.size();
+        for (int i = 0; i < len - 1; i++){
+            s.append(list.get(i).toString());
+            s.append(",");
+        }
+        s.append(list.get(len-1).toString());
+        return s.toString();
+    }
+
+    //对字符串 "1,2,3,4"类解析,返回包含课程的周
+    public static List<Integer> getWeekList(String weeksString){
+        List<Integer> weekList=new ArrayList<>();
+        if(weeksString==null||weeksString.length()==0) return weekList;
+
+        if(weeksString.contains(",")){
+            String[] arr=weeksString.split(",");
+            for(int i=0;i<arr.length;i++){
+                weekList.addAll(getWeekList2(arr[i]));
+            }
+        }else{
+            weekList.addAll(getWeekList2(weeksString));
+        }
+        return weekList;
+    }
+    public static List<Integer> getWeekList2(String weeksString){
+        List<Integer> weekList=new ArrayList<>();
+        int first=-1,end=-1,index=-1;
+        if((index=weeksString.indexOf("-"))!=-1){
+            first=Integer.parseInt(weeksString.substring(0,index));
+            end=Integer.parseInt(weeksString.substring(index+1));
+        }else{
+            first=Integer.parseInt(weeksString);
+            end=first;
+        }
+        for(int i=first;i<=end;i++)
+            weekList.add(i);
+        return weekList;
+    }
 }
 
