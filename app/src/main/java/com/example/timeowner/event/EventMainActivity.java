@@ -145,7 +145,7 @@ public class EventMainActivity extends Activity {
                                 new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                         // 配置RecyclerView的分割线
                         recyclerView.addItemDecoration(
-                                new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+                                new DividerItemDecoration(context, 0));
                         recyclerView.setAdapter(eventAdapter);
 
 
