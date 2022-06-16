@@ -50,11 +50,11 @@ public class ConcentrationMainActivity extends Activity {
                 Button b = (Button) v;
                 if (b.getText().equals("STOP")) {
                     timerHandler.removeCallbacks(timerRunnable);
-                    b.setText("start");
+                    b.setText("START");
                 } else {
                     startTime = System.currentTimeMillis();
                     timerHandler.postDelayed(timerRunnable, 0);
-                    b.setText("stop");
+                    b.setText("STOP");
                 }
             }
         });

@@ -50,42 +50,50 @@ public class MainActivity extends AppCompatActivity  {
         userID = sharedPreferences.getString("userID",null);
 
 
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-            int lastTimeStarted = settings.getInt("last_time_started", -1);
-            Calendar calendar = Calendar.getInstance();
-            int today = calendar.get(Calendar.DAY_OF_YEAR);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                DBConnectHabit dbConnectHabit = new DBConnectHabit();
+//                dbConnectHabit.UpdateEveryDayHabit(userID);
+//
+//            }
+//        }).start();
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        int lastTimeStarted = settings.getInt("last_time_started", -1);
+        Calendar calendar = Calendar.getInstance();
+        int today = calendar.get(Calendar.DAY_OF_YEAR);
 
-            if (today != lastTimeStarted) {
-                //startSomethingOnce();
+        if (today != lastTimeStarted) {
+            //startSomethingOnce();
 
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putInt("last_time_started", today);
-                editor.commit();
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("last_time_started", today);
+            editor.commit();
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        DBConnectHabit dbConnectHabit = new DBConnectHabit();
-                        dbConnectHabit.UpdateEveryDayHabit(userID);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    DBConnectHabit dbConnectHabit = new DBConnectHabit();
+                    dbConnectHabit.UpdateEveryDayHabit(userID);
 
-                    }
-                }).start();
-
-
+                }
+            }).start();
 
 
 
 
-                SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
-                preferences.edit()
-                        .putBoolean("NewDay", true)
-                        .apply();
-            }else{
-                SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
-                preferences.edit()
-                        .putBoolean("NewDay", false)
-                        .apply();
-            }
+
+
+            SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+            preferences.edit()
+                    .putBoolean("NewDay", true)
+                    .apply();
+        }else{
+            SharedPreferences preferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
+            preferences.edit()
+                    .putBoolean("NewDay", false)
+                    .apply();
+        }
 
 
     }

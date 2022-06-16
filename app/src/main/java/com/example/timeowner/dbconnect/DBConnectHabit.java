@@ -81,8 +81,7 @@ public class DBConnectHabit extends DBConnect{
     }
 
     public void UpdateEveryDayHabit(String userID) {
-        String query = "UPDATE table_habit SET habit_today_is_completed = ?," +
-                "WHERE habit_user_id = ? ";
+        String query = "UPDATE table_habit SET habit_today_is_completed = 0 WHERE habit_user_id = ?";
 
         //Open connection
         if (this.OpenConnection()) {
@@ -91,8 +90,7 @@ public class DBConnectHabit extends DBConnect{
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
 
 
-                preparedStatement.setInt(1,0);
-                preparedStatement.setString(2,userID);
+                preparedStatement.setString(1,userID);
 
                 //Execute query
                 preparedStatement.execute();
