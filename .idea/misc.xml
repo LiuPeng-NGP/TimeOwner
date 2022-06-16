@@ -24,14 +24,20 @@
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetable_main.xml" value="0.335" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/coursetable/layout/coursetalbe_main.xml" value="0.151268115942029" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/drawable/roundcorner.xml" value="0.122" />
-        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_add_things.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/drawable/event_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_add_things.xml" value="0.25" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_item.xml" value="0.22777777777777777" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/event/layout/event_main.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/drawable/habit_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/drawable/habit_edit_drawable.xml" value="0.1" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_add_things.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_change.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_change_things.xml" value="0.10677083333333333" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_header.xml" value="0.25" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_item.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/habit/layout/habit_main.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/happiness/layout/happiness_main.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/information/drawable/information_drawable.xml" value="0.1" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/information/layout/information_main.xml" value="0.11666666666666667" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_login.xml" value="0.151268115942029" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/activity_main.xml" value="0.165" />
@@ -43,6 +49,7 @@
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/layout/settings_activity.xml" value="0.11" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/menu/context_menu.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/14733/Documents/GitHub/TimeOwner/app/src/main/res/xml/root_preferences.xml" value="0.2212962962962963" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/drawable/layout/coursetable_header.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/drawable/menu/popmenu_base_func.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/16130/project3/TimeOwner/app/src/main/res/concentration/layout/concentration_layout.xml" value="0.17916666666666667" />

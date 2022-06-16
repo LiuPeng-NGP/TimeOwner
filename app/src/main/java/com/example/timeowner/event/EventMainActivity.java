@@ -163,9 +163,9 @@ public class EventMainActivity extends Activity {
                                 if (direction == ItemTouchHelper.LEFT) {    //if swipe left
 
                                     AlertDialog.Builder builder = new AlertDialog.Builder(com.example.timeowner.event.EventMainActivity.this); //alert for confirm to delete
-                                    builder.setMessage("Are you sure to complete?");    //set message
+                                    builder.setMessage("Have you completed it?");    //set message
 
-                                    builder.setPositiveButton("COMPLETE", new DialogInterface.OnClickListener() { //when click on DELETE
+                                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() { //when click on DELETE
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             eventAdapter.notifyItemRemoved(position);    //item removed from recylcerview
@@ -186,7 +186,7 @@ public class EventMainActivity extends Activity {
 
                                             return;
                                         }
-                                    }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
+                                    }).setNegativeButton("NO", new DialogInterface.OnClickListener() {  //not removing items if cancel is done
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             eventAdapter.notifyItemRemoved(position + 1);    //notifies the RecyclerView Adapter that data in adapter has been removed at a particular position.

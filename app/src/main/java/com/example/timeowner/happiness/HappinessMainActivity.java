@@ -33,7 +33,7 @@ public class HappinessMainActivity extends Activity {
 
        mTextView=findViewById(R.id.textView);
        
-    number=(int)(Math.random() * 22);
+    number=(int)(Math.random() * 122);
 
         @SuppressLint("HandlerLeak") Handler myHandler = new Handler(){
             @Override
