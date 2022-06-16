@@ -3,17 +3,24 @@ package com.example.timeowner.object;
 import java.text.SimpleDateFormat;
 
 public class Event {
-    private String eventID;
+    private int eventID;
     private String eventName;
-    private SimpleDateFormat eventTime;
-    private int eventIsCompleted;
-    private String userID;
+    private String eventUserID;
 
-    public String getEventID() {
+    public Event() {
+    }
+
+    public Event(int eventID, String eventName, String eventUserID) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventUserID = eventUserID;
+    }
+
+    public int getEventID() {
         return eventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(int eventID) {
         this.eventID = eventID;
     }
 
@@ -25,36 +32,12 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public SimpleDateFormat getEventTime() {
-        return eventTime;
+    public String getEventUserID() {
+        return eventUserID;
     }
 
-    public void setEventTime(SimpleDateFormat eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    public int getEventIsCompleted() {
-        return eventIsCompleted;
-    }
-
-    public void setEventIsCompleted(int eventIsCompleted) {
-        this.eventIsCompleted = eventIsCompleted;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public Event(String eventID, String eventName, SimpleDateFormat eventTime, int eventIsCompleted, String userID) {
-        this.eventID = eventID;
-        this.eventName = eventName;
-        this.eventTime = eventTime;
-        this.eventIsCompleted = eventIsCompleted;
-        this.userID = userID;
+    public void setEventUserID(String eventUserID) {
+        this.eventUserID = eventUserID;
     }
 }
 

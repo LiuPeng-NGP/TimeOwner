@@ -43,7 +43,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.example.timeowner.R;
 import com.example.timeowner.databinding.FragmentNotificationsBinding;
 import com.example.timeowner.dbconnect.DBConnectUser;
@@ -71,7 +72,32 @@ import java.util.List;
 import top.zibin.luban.CompressionPredicate;
 import top.zibin.luban.Luban;
 import top.zibin.luban.OnCompressListener;
+import static android.content.ContentValues.TAG;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.timeowner.R;
+import com.example.timeowner.dbconnect.DBConnectHabit;
+import com.example.timeowner.object.Habit;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
@@ -173,7 +199,7 @@ public class NotificationsFragment extends Fragment {
     //message.what
     private static final int QUERY_USER = 1;
 
-    private static final String ACCOUNT_KEY = "my_account";
+    private static final String ACCOUNT_KEY = "userID";
     public static final String ACCOUNT_EXTRA = "account_extra";
     public static final String NAME_EXTRA = "my_name";
 
@@ -213,7 +239,7 @@ public class NotificationsFragment extends Fragment {
         mFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
-        SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
 
 
         mAccount = preferences.getString(ACCOUNT_KEY, "-1");
@@ -343,7 +369,7 @@ public class NotificationsFragment extends Fragment {
                         mAccount = "-1";
                         SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
                         preferences.edit()
-                                .putString(ACCOUNT_KEY, mAccount)
+                                .putString("userID", mAccount)
                                 .commit();
                         System.exit(0);
                     }
@@ -653,13 +679,14 @@ public class NotificationsFragment extends Fragment {
 
     @Override
     public void onStop() {
-        SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
         preferences.edit()
                 .putString(ACCOUNT_KEY, mAccount)
-                .commit();
+                .apply();
         Log.i("CS", "onStop");
         super.onStop();
     }
+
 
     @Override
     public void onPause() {
