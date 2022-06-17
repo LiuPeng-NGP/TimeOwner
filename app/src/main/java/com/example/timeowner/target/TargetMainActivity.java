@@ -277,7 +277,7 @@ public class TargetMainActivity extends AppCompatActivity {
         //title显示单日信息
         CalendarDay date = TgCalendar.getSelectedDate();
         date1 = date;
-        title_month.setText(date.getMonth()+ 1 +"月 周"+getWeekOfDate(date));
+        title_month.setText(getMonth(date)+"  "+getWeekOfDate(date));
         dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
         //
@@ -312,7 +312,7 @@ public class TargetMainActivity extends AppCompatActivity {
                 Calendar calendar1 = date.getCalendar();
                 calendarBehavior.setWeekOfMonth(calendar.get(Calendar.WEEK_OF_MONTH));
                 date1 = date;
-                title_month.setText(date.getMonth()+ 1 +"月 周"+getWeekOfDate(date));
+                title_month.setText(getMonth(date)+"  "+getWeekOfDate(date));
                 //
             }
         });
@@ -521,10 +521,21 @@ public class TargetMainActivity extends AppCompatActivity {
 
     //得到星期
     public static String getWeekOfDate(CalendarDay date){
-        String[] weekDays = {"日","一","二","三","四","五","六"};
+        String[] weekDays = {"Sun","Mon","Tue","Wwd","Thu","Fri","Sat"};
         Calendar cal = Calendar.getInstance();
         cal.setTime(date.getDate());
         int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        if (w < 0)
+            w = 0;
+        return weekDays[w];
+    }
+
+    //得到Month
+    public static String getMonth(CalendarDay date){
+        String[] weekDays = {"Jan.","Feb.","Mar.","Apr.","June","July","Aug.","Sept.","Oct.","Nov.","Dec."};
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date.getDate());
+        int w = cal.get(Calendar.MONTH) - 1;
         if (w < 0)
             w = 0;
         return weekDays[w];
