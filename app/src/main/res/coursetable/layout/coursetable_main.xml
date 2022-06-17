@@ -9,6 +9,7 @@
     <com.zhuangfei.timetable.view.WeekView
         android:id="@+id/weekView"
         android:layout_width="match_parent"
+        android:background="@color/grey"
         android:layout_height="wrap_content"/>
 
     <com.zhuangfei.timetable.TimetableView

@@ -148,7 +148,7 @@
         <EditText
             android:id="@+id/captcha_entry"
             android:layout_width="160dp"
-            android:layout_height="48dp"
+            android:layout_height="68dp"
             android:hint="@string/captcha_label"
             android:background="@drawable/shape"
             android:layout_marginRight="40dp"
