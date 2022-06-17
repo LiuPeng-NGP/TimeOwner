@@ -43,7 +43,7 @@ public class CourseTableMainActivity extends Activity {
 
     WeekView mWeekView;
     TimetableView mTimetableView;
-    List<MySubject> mySubjects = new ArrayList<>();
+    public static List<MySubject> mySubjects = new ArrayList<>();
     Button moreButton;
     LinearLayout layout;
     TextView titleTextView;
@@ -52,7 +52,8 @@ public class CourseTableMainActivity extends Activity {
     //获取数据部分
     public static final int UPDATE_TEXT = 1;
     public static List<MySubject> list1 =new ArrayList<MySubject>();
-    List<MySubject> courses =new ArrayList<MySubject>();
+    public static List<MySubject> courses =new ArrayList<MySubject>();
+    public static List<MySubject> courses_m =new ArrayList<MySubject>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,7 +68,8 @@ public class CourseTableMainActivity extends Activity {
             }
         });
         //初始化
-//        mySubjects = SubjectRepertory.loadDefaultSubjects();
+        //mySubjects = SubjectRepertory.loadDefaultSubjects();
+        turnToList();
         //获取数据
 
         @SuppressLint("HandlerLeak") Handler handler = new Handler(){
@@ -125,7 +127,7 @@ public class CourseTableMainActivity extends Activity {
 
         //测试
 //        println(mySubjects.size()+"");
-//        String s1 = mySubjects.get(0).name;
+//        String s1 = courses_m.get(0).name;
 //        println(s1);
 
         titleTextView = (TextView) findViewById(R.id.id_title);
@@ -142,7 +144,7 @@ public class CourseTableMainActivity extends Activity {
 
     private void initTimetableView() {
         //设置周次选择属性
-        mWeekView.source(courses)
+        mWeekView.source(courses_m)
                 .curWeek(getLocalWeek())
                 .callback(new IWeekView.OnWeekItemClickedListener() {
                     @Override
@@ -163,7 +165,7 @@ public class CourseTableMainActivity extends Activity {
                 .isShow(false)//设置隐藏，默认显示
                 .showView();
 
-        mTimetableView.source(mySubjects)
+        mTimetableView.source(courses_m)
                 .curWeek(getLocalWeek())
                 .curTerm("大三下学期")
                 .maxSlideItem(16)
@@ -213,7 +215,9 @@ public class CourseTableMainActivity extends Activity {
         int weekResult = -1;
         SharedPreferences preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
 
-        int startWeek = preferences.getInt("weekNumber",-1);//，起始周从SharedPreferences获取
+//        int startWeek = preferences.getInt("weekNumber",-1);
+        int startWeek = 17;
+        //，起始周从SharedPreferences获取
         if(startWeek<=20){
             String startDay=preferences.getString("date","");//起始周的星期一，从SharedPreferences获取，为yyyy-MM-dd格式
 //            String endDay= CalendarUtil.getMondayOfWeek();//当前周的星期一，为yyyy-MM-dd格式
@@ -227,15 +231,15 @@ public class CourseTableMainActivity extends Activity {
                 weekResult=startWeek;
             }else{
                 int finalweek=startWeek+week;
-                if(finalweek>17){
-                    weekResult=17;
+                if(finalweek>20){
+                    weekResult=20;
                 }else{
                     weekResult=finalweek;
                 }
             }
             return weekResult;
         }else{
-            weekResult=17;
+            weekResult=20;
             return weekResult;
         }
     }
@@ -289,6 +293,8 @@ public class CourseTableMainActivity extends Activity {
         String str = "";
         for (Schedule bean : beans) {
             //待修改
+            str += bean.getName() + ","+bean.getRoom()+","+bean.getWeekList().toString()+","+bean.getTeacher()+"\n";
+
         }
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
@@ -347,10 +353,10 @@ public class CourseTableMainActivity extends Activity {
                     case R.id.top15:
                         showWeekends();
                         break;
-                    case R.id.top17:
-                        //清空
-                        //exitCurrentAccount();
-                        break;
+//                    case R.id.top17:
+//                        //清空
+//                        //exitCurrentAccount();
+//                        break;
                     default:
                         break;
                 }
@@ -557,6 +563,26 @@ public class CourseTableMainActivity extends Activity {
         for(int i=first;i<=end;i++)
             weekList.add(i);
         return weekList;
+    }
+
+    public void turnToList(){
+
+        MySubject m = new MySubject(1,"微机原理与接口","A101",3,2,"FuKun",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),1);
+        courses_m.add(m);
+        MySubject m1 = new MySubject(1,"西方文化入门","A201",5,2,"WanZhaoRun",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),2);
+        courses_m.add(m1);
+        MySubject m2 = new MySubject(2,"移动应用开发","A301",3,2,"HaoXiaoKe",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),3);
+        courses_m.add(m2);
+        MySubject m3 = new MySubject(2,"毛中特概论","A401",7,2,"NiChunLi",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),4);
+        courses_m.add(m3);
+        MySubject m4 = new MySubject(3,"项目管理","A501",5,2,"YinZhiJun",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),5);
+        courses_m.add(m4);
+        MySubject m5 = new MySubject(4,"嵌入式","B101",5,2,"ShiShuo",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),6);
+        courses_m.add(m5);
+        MySubject m6 = new MySubject(4,"计算机图像处理","B201",7,2,"GuoYongFan",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),7);
+        courses_m.add(m6);
+        MySubject m7 = new MySubject(5,"数据挖掘","B301",3,2,"WanYuanQuan",getWeekList("1,2,3,4,5,6,7,8,10,11,16"),8);
+        courses_m.add(m7);
     }
 }
 
