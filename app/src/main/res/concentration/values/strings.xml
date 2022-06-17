@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="total_0_hours">Total: 0 hours</string>
+    <string name="target_title">Target</string>
 </resources>
