@@ -48,6 +48,8 @@ import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 //import org.threeten.bp.LocalDate;
 //import org.threeten.bp.temporal.WeekFields;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -76,6 +78,10 @@ public class TargetMainActivity extends AppCompatActivity {
 
     private TargetAdapter targetAdapter;
     private RecyclerView recyclerView;
+
+    private long ttt;
+    private String timeStart = "";
+    private String timeEnd = "";
 
 
     Date startTime;
@@ -120,13 +126,24 @@ public class TargetMainActivity extends AppCompatActivity {
                 Button mSureButton = (Button) popupView.findViewById(R.id.target_sure_button);
                 Button mCancelButton = (Button) popupView.findViewById(R.id.target_cancel_button);
                 Button mTargetStartTime=(Button)popupView.findViewById(R.id.target_start_time_button);
-                Button mTargetEndTime=(Button)popupView.findViewById(R.id.target_start_time_button);
+                Button mTargetEndTime=(Button)popupView.findViewById(R.id.target_end_time_button);
                 CalendarView calendarView=(CalendarView)popupView.findViewById(R.id.calendarView1);
                 TextView mStartTextView=(TextView)popupView.findViewById(R.id.target_start_time_text_view);
                 TextView mEndTextView=(TextView)popupView.findViewById(R.id.target_end_time_text_view);
 
 
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String format = "yyyy-MM-dd";
 
+                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                    @Override
+                    public void onSelectedDayChange( CalendarView view, int year, int month, int dayOfMonth) {
+                        //显示用户选择的日期
+                        Calendar c = Calendar.getInstance();
+                        c.set(year,month,dayOfMonth);
+                        ttt = c.getTime().getTime();
+                    }
+                });
 
                 //需要获取当前选中的日历时间显示到textview文本
                 //还有往数据库存的字符串格式是什么，也转化一下吧
@@ -140,9 +157,12 @@ public class TargetMainActivity extends AppCompatActivity {
 //                        startTime=calendarView.();
 //                        Log.i(TAG, "onClick: "+);
 
-
-
-
+                        try {
+                            timeStart = longToString(ttt,format);
+                            mStartTextView.setText(longToString(ttt,format));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 });
@@ -152,6 +172,12 @@ public class TargetMainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
+                        try {
+                            timeEnd = longToString(ttt,format);
+                            mEndTextView.setText(longToString(ttt,format));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 
@@ -161,61 +187,63 @@ public class TargetMainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-//                        Habit addNewHabit =new Habit(0,
-//                                mAddThings.getText().toString(),
-//                                0,
-//                                0,
-//                                userID);
-//
-//
-//
-//
-//                        @SuppressLint("HandlerLeak") Handler handler = new Handler() {
-//
-//                            @Override
-//                            public void handleMessage(@NonNull Message msg) {
-//                                switch (msg.what) {
-//                                    case UPDATE_TEXT:
-//                                        popupWindow.dismiss();
-////                                        HabitShow();
-//                                        targetArrayList.add(addNewHabit);
-//                                        targetAdapter.notifyDataSetChanged();
-//
-//                                        super.handleMessage(msg);
-//                                }
-//
-//                            }
-//
-//
-//                        };
-//
-//
-//                        new Thread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                DBConnectHabit dbConnectHabit = new DBConnectHabit();
-//
-//                                Habit target=new Habit(0,
-//                                        mAddThings.getText().toString(),
-//                                        0,
-//                                        0,
-//                                        userID);
-//
-//
-//                                dbConnectHabit.insert(target);
-//
-//
-//
-//                                Message msg = new Message();
-//                                msg.what = UPDATE_TEXT;
-//                                handler.sendMessage(msg);
-//                                try {
-//                                    Thread.sleep(100);
-//                                } catch (InterruptedException e) {
-//                                    Thread.currentThread().interrupt();
-//                                }
-//                            }
-//                        }).start();
+                        Target addTarget = new Target(0,
+                                mAddThings.getText().toString(),
+                                timeStart,
+                                timeEnd,
+                                null,
+                                0,userID);
+
+
+                        @SuppressLint("HandlerLeak") Handler handler = new Handler() {
+
+                            @Override
+                            public void handleMessage(@NonNull Message msg) {
+                                switch (msg.what) {
+                                    case UPDATE_TEXT:
+                                        popupWindow.dismiss();
+//                                        HabitShow();
+                                        targetArrayList.add(addTarget);
+                                        targetAdapter.notifyDataSetChanged();
+
+                                        super.handleMessage(msg);
+                                }
+
+                            }
+
+
+                        };
+
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DBConnectTarget dbConnectTarget = new DBConnectTarget();
+
+                                Target addTarget = new Target(0,
+                                        mAddThings.getText().toString(),
+                                        timeStart,
+                                        timeEnd,
+                                        null,
+                                        0,userID);
+
+
+                                dbConnectTarget.insert(addTarget);
+
+
+
+                                Message msg = new Message();
+                                msg.what = UPDATE_TEXT;
+                                handler.sendMessage(msg);
+                                try {
+                                    Thread.sleep(100);
+                                } catch (InterruptedException e) {
+                                    Thread.currentThread().interrupt();
+                                }
+                            }
+                        }).start();
+
+//                        popupWindow.dismiss();
                     }
 
                 });
@@ -502,6 +530,39 @@ public class TargetMainActivity extends AppCompatActivity {
         return weekDays[w];
     }
     //Date 转 LocalDate
+
+    // currentTime要转换的long类型的时间
+    // formatType要转换的string类型的时间格式
+    public static String longToString(long currentTime, String formatType)
+            throws ParseException {
+        Date date = longToDate(currentTime, formatType); // long类型转成Date类型
+        String strTime = dateToString(date, formatType); // date类型转成String
+        return strTime;
+    }
+    // currentTime要转换的long类型的时间
+    // formatType要转换的时间格式yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日 HH时mm分ss秒
+    public static Date longToDate(long currentTime, String formatType)
+            throws ParseException {
+        Date dateOld = new Date(currentTime); // 根据long类型的毫秒数生命一个date类型的时间
+        String sDateTime = dateToString(dateOld, formatType); // 把date类型的时间转换为string
+        Date date = stringToDate(sDateTime, formatType); // 把String类型转换为Date类型
+        return date;
+    }
+    // strTime要转换的string类型的时间，formatType要转换的格式yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日
+    // HH时mm分ss秒，
+    // strTime的时间格式必须要与formatType的时间格式相同
+    public static Date stringToDate(String strTime, String formatType)
+            throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat(formatType);
+        Date date = null;
+        date = formatter.parse(strTime);
+        return date;
+    }
+    // formatType格式为yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日 HH时mm分ss秒
+    // data Date类型的时间
+    public static String dateToString(Date data, String formatType) {
+        return new SimpleDateFormat(formatType).format(data);
+    }
 
 
     @Override
