@@ -132,4 +132,40 @@ public class DBConnectConcentration extends DBConnect{
             return list;
         }
     }
+
+
+
+    public int selectSum(String concentrationUserID) {
+        String query = "SELECT sum(concentration_time) FROM table_concentration WHERE concentration_user_id = ?";
+
+
+        int totalMinutes=0;
+
+        //Open connection
+        if (this.OpenConnection()) {
+            try {
+                //Create Command
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                //Create a data reader and Execute the command
+                preparedStatement.setString(1,concentrationUserID);
+                ResultSet resultSet= preparedStatement.executeQuery();
+                //Read the data and store them in the list
+                while (resultSet.next()) {
+                    totalMinutes=resultSet.getInt(1);
+                }
+
+                //close Data Reader
+                resultSet.close();
+
+                //close Connection
+                this.CloseConnection();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return totalMinutes;
+        } else {
+            return totalMinutes;
+        }
+    }
 }
