@@ -39,3 +39,61 @@
         tools:ignore="RtlHardcoded,TextFields" />
 
 </LinearLayout>
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="76dp"-->
+<!--    android:background="@drawable/round_corner_white"-->
+<!--    android:orientation="horizontal">-->
+
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/habit_checkbox"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="37dp"-->
+<!--        android:layout_gravity="left"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Checkbox"-->
+<!--        android:textSize="19sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="RtlHardcoded" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/habit_text_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="right|center_vertical"-->
+<!--        android:autofillHints=""-->
+<!--        android:layout_marginEnd="0dp"-->
+<!--        android:clickable="false"-->
+<!--        android:gravity="center"-->
+<!--        android:hint="0000"-->
+<!--        android:inputType="text"-->
+<!--        android:textColor="@color/grey2"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="RtlHardcoded,TextFields" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+
+
+
+
+
+

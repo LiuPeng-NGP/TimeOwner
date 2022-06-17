@@ -27,7 +27,7 @@
         android:layout_height="42dp"
         android:background="@drawable/round_corner_white"
         android:gravity="center"
-        android:text="Total: 0 minutes"
+        android:text="@string/total_0_hours"
         android:textColor="@color/grey3"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/timerTextView"
