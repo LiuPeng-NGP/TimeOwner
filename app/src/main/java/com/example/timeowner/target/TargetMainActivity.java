@@ -1,5 +1,7 @@
 package com.example.timeowner.target;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,10 +10,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -72,6 +76,10 @@ public class TargetMainActivity extends AppCompatActivity {
 
     private TargetAdapter targetAdapter;
     private RecyclerView recyclerView;
+
+
+    Date startTime;
+    Date endTime;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +119,42 @@ public class TargetMainActivity extends AppCompatActivity {
                 EditText mAddThings = (EditText) popupView.findViewById(R.id.target_add_things_edit_text);
                 Button mSureButton = (Button) popupView.findViewById(R.id.target_sure_button);
                 Button mCancelButton = (Button) popupView.findViewById(R.id.target_cancel_button);
+                Button mTargetStartTime=(Button)popupView.findViewById(R.id.target_start_time_button);
+                Button mTargetEndTime=(Button)popupView.findViewById(R.id.target_start_time_button);
+                CalendarView calendarView=(CalendarView)popupView.findViewById(R.id.calendarView1);
+                TextView mStartTextView=(TextView)popupView.findViewById(R.id.target_start_time_text_view);
+                TextView mEndTextView=(TextView)popupView.findViewById(R.id.target_end_time_text_view);
+
+
+
+
+                //需要获取当前选中的日历时间显示到textview文本
+                //还有往数据库存的字符串格式是什么，也转化一下吧
+
+                //开始时间
+                mTargetStartTime.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+//                        startTime=calendarView.();
+//                        Log.i(TAG, "onClick: "+);
+
+
+
+
+
+                    }
+                });
+
+                //结束时间
+                mTargetEndTime.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
 
 
                 mSureButton.setOnClickListener(new View.OnClickListener() {
