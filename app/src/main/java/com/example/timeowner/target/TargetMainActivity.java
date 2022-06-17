@@ -503,4 +503,12 @@ public class TargetMainActivity extends AppCompatActivity {
     }
     //Date 转 LocalDate
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCalendarView();
+        initRecyclerView();
+
+    }
 }
