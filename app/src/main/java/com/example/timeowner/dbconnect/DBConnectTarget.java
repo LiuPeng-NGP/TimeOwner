@@ -121,11 +121,11 @@ public class DBConnectTarget extends DBConnect{
 
 
     //Select statement
-    public List<Target> selectAll(String id) {
+    public ArrayList<Target> selectAll(String id) {
         String query = "SELECT * FROM table_target WHERE target_user_id = ?";
 
         //Create a class[] to store the result
-        List<Target> list = new ArrayList<Target>();
+        ArrayList<Target> list = new ArrayList<Target>();
         //Open connection
         if (this.OpenConnection()) {
             try {

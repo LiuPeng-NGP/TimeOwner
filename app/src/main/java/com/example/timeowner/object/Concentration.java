@@ -2,16 +2,9 @@ package com.example.timeowner.object;
 
 public class Concentration {
     private int concentrationID;
-    private String concentrationStartTime;
-    private String concentrationEndTime;
+    private int concentrationTime;
     private String concentrationUserID;
 
-    public Concentration(int concentrationID, String concentrationStartTime, String concentrationEndTime, String concentrationUserID) {
-        this.concentrationID = concentrationID;
-        this.concentrationStartTime = concentrationStartTime;
-        this.concentrationEndTime = concentrationEndTime;
-        this.concentrationUserID = concentrationUserID;
-    }
 
     public Concentration() {
 
@@ -25,20 +18,12 @@ public class Concentration {
         this.concentrationID = concentrationID;
     }
 
-    public String getConcentrationStartTime() {
-        return concentrationStartTime;
+    public int getConcentrationTime() {
+        return concentrationTime;
     }
 
-    public void setConcentrationStartTime(String concentrationStartTime) {
-        this.concentrationStartTime = concentrationStartTime;
-    }
-
-    public String getConcentrationEndTime() {
-        return concentrationEndTime;
-    }
-
-    public void setConcentrationEndTime(String concentrationEndTime) {
-        this.concentrationEndTime = concentrationEndTime;
+    public void setConcentrationTime(int concentrationTime) {
+        this.concentrationTime = concentrationTime;
     }
 
     public String getConcentrationUserID() {
@@ -46,6 +31,12 @@ public class Concentration {
     }
 
     public void setConcentrationUserID(String concentrationUserID) {
+        this.concentrationUserID = concentrationUserID;
+    }
+
+    public Concentration(int concentrationID, int concentrationTime, String concentrationUserID) {
+        this.concentrationID = concentrationID;
+        this.concentrationTime = concentrationTime;
         this.concentrationUserID = concentrationUserID;
     }
 }

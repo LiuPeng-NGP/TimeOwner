@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="target_add_hint">Add target here!</string>
+    <string name="end_time">End Time</string>
 </resources>
