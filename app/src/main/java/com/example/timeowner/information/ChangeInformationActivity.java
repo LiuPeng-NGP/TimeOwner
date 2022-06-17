@@ -107,10 +107,10 @@ public class ChangeInformationActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             AlertDialog.Builder builder=new AlertDialog.Builder(ChangeInformationActivity.this);
-                            builder.setTitle("提示");
-                            builder.setMessage("邮箱与安全验证相关！");
+                            builder.setTitle("Notice");
+                            builder.setMessage("Email is related to security verification！");
                             //设置按钮：确定或取消
-                            builder.setPositiveButton("更换绑定", new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton("Change Binding", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent= new Intent(ChangeInformationActivity.this, ChangeEmailActivity.class);
@@ -118,7 +118,7 @@ public class ChangeInformationActivity extends AppCompatActivity {
                                     mChangeEmailLauncher.launch(intent);
                                 }
                             });
-                            builder.setNegativeButton("取消",null);
+                            builder.setNegativeButton("Cancel",null);
                             builder.show();
 
                         }

@@ -166,14 +166,16 @@
             android:layout_weight="1"
             android:text="@string/button_to_register"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:textAllCaps="false"/>
         <Button
             android:id="@+id/button_to_return"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="20dp"
-            android:text="@string/button_to_return"/>
+            android:text="@string/button_to_return"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </LinearLayout>

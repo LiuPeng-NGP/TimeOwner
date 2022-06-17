@@ -59,7 +59,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mAccount = mAccountEntry.getText().toString();
                 if (mAccount == null || mAccount.equals("")) {
-                    Toast.makeText(ForgetPasswordActivity.this, "账号不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "Account cannot be empty！", Toast.LENGTH_SHORT).show();
                 } else {
                     queryUser();
                 }
@@ -73,15 +73,15 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 mPsw = mPswEntry.getText().toString();
                 mPswConfirm = mPswConfirmEntry.getText().toString();
                 if (mCode == null || mCode.equals("")) {
-                    Toast.makeText(ForgetPasswordActivity.this, "重置码不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "Reset code cannot be empty！", Toast.LENGTH_SHORT).show();
                 } else if (!mCode.equals(code_send)) {
-                    Toast.makeText(ForgetPasswordActivity.this, "重置码错误！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "Reset code is wrong！", Toast.LENGTH_SHORT).show();
                 } else if (mPsw == null || mPsw.equals("")) {
-                    Toast.makeText(ForgetPasswordActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "password cannot be empty！", Toast.LENGTH_SHORT).show();
                 } else if (mPsw.length() > 30) {
-                    Toast.makeText(ForgetPasswordActivity.this, "密码长度不能大于30！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "Password length cannot be greater than 30！", Toast.LENGTH_SHORT).show();
                 } else if (!mPswConfirm.equals(mPsw)) {
-                    Toast.makeText(ForgetPasswordActivity.this, "两次密码不一致！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "The two passwords do not match！", Toast.LENGTH_SHORT).show();
                 } else {
                     updateUser();
                 }
@@ -130,22 +130,22 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     Draft draft = new Draft()
                             .setNickname("Time owner")
                             .setTo(mEmail)
-                            .setSubject("光阴记密码重置")
-                            .setText("【光阴记】您正在进行找回密码操作，重置码： " + code_send +"。（重置码告知他人将导致账号被盗，请勿泄露）");
+                            .setSubject("Time Owner Reset Password")
+                            .setText("【Time Owner】You are in the process of retrieving your password, reset code： " + code_send +".（Informing others of the reset code will lead to account theft, please do not disclose）");
                     EmailKit.useSMTPService(config).send(draft, new EmailKit.GetSendCallback() {
                         @Override
                         public void onSuccess() {
-                            Toast.makeText(ForgetPasswordActivity.this, "重置码已发送，请在绑定邮箱中查看！", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ForgetPasswordActivity.this, "The reset code has been sent, please check in the bound email！", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onFailure(String errMsg) {
-                            Toast.makeText(ForgetPasswordActivity.this, "重置码发送失败！", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ForgetPasswordActivity.this, "Failed to send reset code！", Toast.LENGTH_SHORT).show();
                         }
                     });
                     super.handleMessage(msg);
                 } else if (msg.what == NOT_FIND_ACCOUNT) {
-                    Toast.makeText(ForgetPasswordActivity.this, "账号不存在！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "Account does not exist！", Toast.LENGTH_SHORT).show();
                     super.handleMessage(msg);
                 }
             }
@@ -180,7 +180,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     Intent resultData = new Intent();
                     resultData.putExtra(LoginActivity.ACCOUNT_EXTRA_KEY, mAccount);
                     setResult(RESULT_OK, resultData);
-                    Toast.makeText(ForgetPasswordActivity.this, "密码修改成功！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, "Password reset complete！", Toast.LENGTH_SHORT).show();
                     super.handleMessage(msg);
                     finish();
                 }

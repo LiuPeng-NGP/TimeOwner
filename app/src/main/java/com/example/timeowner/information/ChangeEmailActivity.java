@@ -74,17 +74,17 @@ public class ChangeEmailActivity extends AppCompatActivity {
                 Draft draft = new Draft()
                         .setNickname("Time owner")
                         .setTo(mEmail)
-                        .setSubject("光阴记验证码")
-                        .setText("【光阴记】您正在更换邮箱绑定，验证码： " + code_send +"。（验证码请勿向他人泄露！）");
+                        .setSubject("Time Owner Verification Code")
+                        .setText("【Time Owner】You are changing the email binding, verification code： " + code_send +".（Do not disclose the verification code to others!）");
                 EmailKit.useSMTPService(config).send(draft, new EmailKit.GetSendCallback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(ChangeEmailActivity.this, "验证码码已发送，请在邮箱中查看！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChangeEmailActivity.this, "The verification code has been sent, please check in your email!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(String errMsg) {
-                        Toast.makeText(ChangeEmailActivity.this, "验证码发送失败！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChangeEmailActivity.this, "Failed to send verification code!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -95,18 +95,18 @@ public class ChangeEmailActivity extends AppCompatActivity {
                 mNewEmail = mEmailEntry.getText().toString();
                 mCode = mCaptchaEntry.getText().toString();
                 if (mCode == null || mCode.equals("")) {
-                    Toast.makeText(ChangeEmailActivity.this, "重置码不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeEmailActivity.this, "verification code cannot be empty!", Toast.LENGTH_SHORT).show();
                 } else if (!mCode.equals(code_send)) {
-                    Toast.makeText(ChangeEmailActivity.this, "重置码错误！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeEmailActivity.this, "wrong verification code！", Toast.LENGTH_SHORT).show();
                 } else if (mNewEmail == null || mNewEmail.equals("")) {
-                    Toast.makeText(ChangeEmailActivity.this, "邮箱不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeEmailActivity.this, "E-mail can not be empty！", Toast.LENGTH_SHORT).show();
                 } else if (!mNewEmail.matches(emailPattern)) {
-                    Toast.makeText(ChangeEmailActivity.this, "邮箱格式不合法！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeEmailActivity.this, "Email format is illegal！", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();
                     intent.putExtra(NEW_EMAIL_EXTRA, mNewEmail);
                     setResult(RESULT_OK, intent);
-                    Toast.makeText(ChangeEmailActivity.this, "邮箱绑定更改完成！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeEmailActivity.this, "Email binding change completed！", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

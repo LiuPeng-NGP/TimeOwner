@@ -191,7 +191,7 @@ public class NotificationsFragment extends Fragment {
             if (result.getResultCode() == Activity.RESULT_OK) {
                 Intent data = result.getData();
                 mName = data.getStringExtra(NAME_EXTRA);
-                mNameText.setText("昵称 : " + mName);
+                mNameText.setText("Name : " + mName);
             }
         }
     });
@@ -298,7 +298,7 @@ public class NotificationsFragment extends Fragment {
                     user = (User) msg.obj;
                     mUser = user;
                     mName = user.getUserName();
-                    mNameText.setText("昵称 : " + mName);
+                    mNameText.setText("Name : " + mName);
                     mNameText.setVisibility(View.VISIBLE);
                     mProfile = user.getUserPicture();
                     if(mProfile != null){
@@ -321,7 +321,7 @@ public class NotificationsFragment extends Fragment {
                     mRecentChannel = user.getUserRecentChannel();
                     mCreateTime = user.getUserCreateTime();
                     mTimeRecordButton.setEnabled(true);
-                    mTimeRecordButton.setText("您已来到光阴记" + getTimeRecord() + "天！" );
+                    mTimeRecordButton.setText("You have been here for " + getTimeRecord() + " days！" );
                     mTimeRecordButton.setVisibility(View.VISIBLE);
 
                 }
@@ -353,17 +353,17 @@ public class NotificationsFragment extends Fragment {
      */
     private void updateUI() {
         queryUser();
-        mAccountText.setText("账号 : " +  mAccount);
+        mAccountText.setText("Account : " +  mAccount);
         mAccountText.setVisibility(View.VISIBLE);
         mAccountManagerLayout.setVisibility(View.VISIBLE);
         mExitLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-                builder.setTitle("提示");
-                builder.setMessage("您确定退出登录吗？");
+                builder.setTitle("Notice");
+                builder.setMessage("Are you sure to log out？");
                 //设置按钮：确定或取消
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mAccount = "-1";
@@ -374,7 +374,7 @@ public class NotificationsFragment extends Fragment {
                         System.exit(0);
                     }
                 });
-                builder.setNegativeButton("取消",null);
+                builder.setNegativeButton("Cancel",null);
                 builder.show();
 
             }
@@ -387,7 +387,7 @@ public class NotificationsFragment extends Fragment {
             }
         });
         mChannelButton.setEnabled(true);
-        mChannelButton.setText("最近加入的频道");
+        mChannelButton.setText("Recent Channel");
         mChannelButton.setVisibility(View.VISIBLE);
 //        mChannelButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -431,16 +431,16 @@ public class NotificationsFragment extends Fragment {
             mRxPermissions = new RxPermissions(getActivity());
             mRxPermissions.request(mPermissionsGroup).subscribe(granted -> {
                 if (granted) {
-                    Toast.makeText(getActivity(), "权限请求成功！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Permission request succeeded！", Toast.LENGTH_SHORT).show();
                     mHasPermission = true;
                 } else {
-                    Toast.makeText(getActivity(), "权限未开启！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Permission not enabled！", Toast.LENGTH_SHORT).show();
                     mHasPermission = false;
                 }
             });
 
         } else {
-            Toast.makeText(getActivity(), "不需要动态获取权限！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "No need to dynamically acquire permissions！", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -569,7 +569,7 @@ public class NotificationsFragment extends Fragment {
         UCrop uCrop = UCrop.of(uri, destinationUri);
         uCrop.withAspectRatio(1, 1);
         options.setAllowedGestures(com.yalantis.ucrop.UCropActivity.ALL, com.yalantis.ucrop.UCropActivity.NONE, com.yalantis.ucrop.UCropActivity.ALL);
-        options.setToolbarTitle("移动和缩放");
+        options.setToolbarTitle("Move and zoom");
         options.setCropGridStrokeWidth(2);
         options.setMaxScaleMultiplier(3);
         options.setShowCropGrid(true);

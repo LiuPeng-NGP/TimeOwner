@@ -44,7 +44,7 @@
     <string name="email_label" >Please input your email</string>
     <string name="get_email_code">Get the reset code</string>
     <string name="reset_code_label">Enter the reset code</string>
-    <string name="submit">submit</string>
+    <string name="submit">Submit</string>
     <string name="reset_psw_label">Please reset your password</string>
     <string name="remember_psw">Remember password</string>
     <string name="take_photo_label">Camera</string>

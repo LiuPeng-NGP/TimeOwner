@@ -50,18 +50,19 @@
             android:layout_marginBottom="10dp"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp"/>
+
         <EditText
             android:id="@+id/information_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@drawable/shape"
-            android:text=""
+            android:layout_width="200dp"
+            android:layout_height="48dp"
             android:layout_alignParentEnd="true"
-            android:textSize="18sp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp" />
+            android:background="@drawable/shape"
+            android:text=""
+            android:textSize="18sp" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -97,6 +98,7 @@
         android:layout_width="match_parent"
         android:text="@string/save_label"
         android:layout_margin="20dp"
+        android:textAllCaps="false"
         />
 
 

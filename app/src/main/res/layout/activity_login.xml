@@ -92,7 +92,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
-            android:text="@string/button_to_login" />
+            android:text="@string/button_to_login"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/button_to_go_register"
@@ -100,7 +101,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
-            android:text="@string/button_to_register" />
+            android:text="@string/button_to_register"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </LinearLayout>

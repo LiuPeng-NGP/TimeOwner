@@ -87,27 +87,27 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void registerUser() {
         if (mAccount == null || mAccount.equals("")) {
-            Toast.makeText(this, "账号不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Account cannot be empty！", Toast.LENGTH_SHORT).show();
         } else if (!mAccount.matches(accountPattern)) {
-            Toast.makeText(this, "账号格式不合法，请输入1-10位数字！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "The format of the account number is invalid, please enter 1-10 digits！", Toast.LENGTH_SHORT).show();
         } else if (mName == null || mName.equals("")) {
-            Toast.makeText(this, "用户名不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Username can not be empty！", Toast.LENGTH_SHORT).show();
         } else if (mName.length() > 30) {
-            Toast.makeText(this, "用户名长度不能超过30！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Username length cannot exceed 30！", Toast.LENGTH_SHORT).show();
         } else if (mEmail == null || mEmail.equals("")) {
-            Toast.makeText(this, "邮箱不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "E-mail can not be empty！", Toast.LENGTH_SHORT).show();
         } else if (!mEmail.matches(emailPattern)) {
-            Toast.makeText(this, "邮箱格式不合法！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Email format is illegal！", Toast.LENGTH_SHORT).show();
         } else if (mPsw == null || mPsw.equals("")) {
-            Toast.makeText(this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "password can not be empty！", Toast.LENGTH_SHORT).show();
         } else if (mPsw.length() > 30) {
-            Toast.makeText(this, "密码长度不能超过30！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password length cannot exceed 30！", Toast.LENGTH_SHORT).show();
         } else if (!mPsw.equals(mPswConfirm)) {
-            Toast.makeText(this, "两次密码输入不一致！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Inconsistent password entered twice！", Toast.LENGTH_SHORT).show();
         } else if (mCaptchaInput == null || mCaptchaInput.equals("")) {
-            Toast.makeText(this, "验证码不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Verification code cannot be！", Toast.LENGTH_SHORT).show();
         } else if (!mCaptcha.isEquals(mCaptchaInput)) {
-            Toast.makeText(this, "验证码不正确！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Incorrect verification code！", Toast.LENGTH_SHORT).show();
             mCaptcha.refresh();
         } else {
             insertUser();
@@ -145,10 +145,10 @@ public class RegisterActivity extends AppCompatActivity {
                         Intent resultData = new Intent();
                         resultData.putExtra(LoginActivity.ACCOUNT_EXTRA_KEY, newUser.getUserID());
                         setResult(RESULT_OK, resultData);
-                        Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "registration success！", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
-                        Toast.makeText(RegisterActivity.this, "该账号已存在！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "The account already exists！", Toast.LENGTH_SHORT).show();
                     }
                     super.handleMessage(msg);
                 }

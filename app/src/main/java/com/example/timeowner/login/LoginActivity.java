@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 String account = mAccountEntry.getText().toString();
                 String psw = mPswEntry.getText().toString();
                 if (account == null || account.equals("")) {
-                    Toast.makeText(LoginActivity.this, "账号不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Account cannot be empty！", Toast.LENGTH_SHORT).show();
                 } else {
                     queryUser(account, psw);
                 }
@@ -93,20 +93,20 @@ public class LoginActivity extends AppCompatActivity {
                     User user = new User();
                     user = (User) msg.obj;
                     if (user.getUserID() == null) {
-                        Toast.makeText(LoginActivity.this, "账号不存在！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Account does not exist！", Toast.LENGTH_SHORT).show();
                         super.handleMessage(msg);
                     } else {
                         if (psw == null || psw.equals("")) {
-                            Toast.makeText(LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Password cannot be empty！", Toast.LENGTH_SHORT).show();
                             super.handleMessage(msg);
                         } else if (!psw.equals(user.getUserPassword())) {
-                            Toast.makeText(LoginActivity.this, "密码错误！密码为 " + user.getUserPassword(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "wrong password! " , Toast.LENGTH_SHORT).show();
                             super.handleMessage(msg);
                         } else {
                             Intent resultData =new Intent();
                             resultData.putExtra(ACCOUNT_EXTRA_KEY, account);
                             setResult(RESULT_OK,resultData);
-                            Toast.makeText(LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Landed successfully！", Toast.LENGTH_SHORT).show();
                             super.handleMessage(msg);
                             finish();
                         }
