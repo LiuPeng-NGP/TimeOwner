@@ -33,7 +33,7 @@
         android:title="显示周次选择"/>
     <item android:id="@+id/top12"
         android:title="隐藏周次选择"/>
-    <item android:id="@+id/top17"
-        android:title="退出当前账号"/>
+<!--    <item android:id="@+id/top17"-->
+<!--        android:title="退出当前账号"/>-->
 
 </menu>
