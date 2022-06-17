@@ -3,6 +3,7 @@ package com.example.timeowner.target;
 import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,7 +63,7 @@ import java.util.Map;
 /**
  * 目标主函数
  */
-public class TargetMainActivity extends AppCompatActivity {
+public class TargetMainActivity extends Activity {
 
     private CalendarBehavior calendarBehavior;
     private int dayOfWeek;
@@ -269,7 +270,7 @@ public class TargetMainActivity extends AppCompatActivity {
             calendarBehavior = (CalendarBehavior) behavior;
         }
         //初始 周模式
-        //TgCalendar.state().edit().setCalendarDisplayMode(CalendarMode.WEEKS).commit();
+//        TgCalendar.state().edit().setCalendarDisplayMode(CalendarMode.WEEKS).commit();
 
         TgCalendar.setTopbarVisible(false);//隐藏标题栏
         Calendar calendar = Calendar.getInstance();
