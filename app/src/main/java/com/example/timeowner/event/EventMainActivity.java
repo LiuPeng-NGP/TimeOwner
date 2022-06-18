@@ -41,18 +41,12 @@ public class EventMainActivity extends Activity {
     private String userID;
     private EventAdapter eventAdapter;
     private int mWhereIfCompletedPartition;
-
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_main);
         SharedPreferences sharedPreferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
         userID = sharedPreferences.getString("userID",null);
-
-
         EventShow();
-
-
-
 
         mFloatingActionButton=findViewById(R.id.floatingActionButton);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -227,12 +221,6 @@ public class EventMainActivity extends Activity {
             }
         }).start();
     }
-
-
-
-
-
-
 
 }
 

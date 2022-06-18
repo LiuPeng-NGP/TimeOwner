@@ -42,10 +42,6 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         this.habitArrayList = habitArrayList;
     }
 
-
-
-
-
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -102,10 +98,6 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         });
 
 
-
-
-
-
         holder.mCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -142,8 +134,6 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                                 boolean focusable = true; // lets taps outside the popup also dismiss it
                                 final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
                                 // show the popup window
-                                // which view you pass in doesn't matter, it is only used for the window tolken
-
 
                                 popupWindow.update();
                                 popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
@@ -159,11 +149,6 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                                 mSureButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-
-
-
-
-
 
                                         @SuppressLint("HandlerLeak") Handler handler = new Handler() {
 
@@ -208,22 +193,7 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                                             }
                                         }).start();
                                     }
-
-
-//                        //Temp
-//                        userID="191001";
-
-//                        Log.i(TAG, "UserID has transferred to this activity! ");
-
-
-
-
-
-
-
-
                                 });
-
 
                                 mCancelButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -233,144 +203,19 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
                                 });
 
 
-
-
-
-
                                 return true;
                             }
                         });
                     }
                 });
-
-
-//                holder.mCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
-//                    @Override
-//                    public boolean onLongClick(View v) {
-//
-//
-//
-//                        // inflate the layout of the popup window
-//                        LayoutInflater inflater = (LayoutInflater)
-//                                context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-//                        View popupView = inflater.inflate(R.layout.habit_change, null);
-//
-//                        // create the popup window
-//                        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-//                        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-//                        boolean focusable = true; // lets taps outside the popup also dismiss it
-//                        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-//                        // show the popup window
-//                        // which view you pass in doesn't matter, it is only used for the window tolken
-//                        popupWindow.update();
-//
-////                        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
-////                        popupWindow.showAtLocation(holder.itemView, Gravity.NO_GRAVITY, (int)holder.itemView.getX(), (int)holder.itemView.getY() - holder.itemView.getMeasuredHeight());
-//                        popupWindow.showAtLocation(holder.itemView, Gravity.NO_GRAVITY, (int)holder.itemView.getX(), (int)holder.itemView.getY());
-//                        popupWindow.setFocusable(true);
-//                        popupWindow.setTouchable(true);
-//
-//                        Button mChangeHabit = (Button) popupView.findViewById(R.id.habit_change);
-//
-//
-////                        mChangeHabit.setOnClickListener(new View.OnClickListener() {
-////                            @Override
-////                            public void onClick(View v) {
-////
-////
-////
-////
-////                                Habit changeUpdateHabit =new Habit(habit.getHabitID(),
-////                                        height.getText().toString(),
-////                                        0,
-////                                        0,
-////                                        userID);
-////
-////
-////
-////
-////                                @SuppressLint("HandlerLeak") Handler handler = new Handler() {
-////
-////                                    @Override
-////                                    public void handleMessage(@NonNull Message msg) {
-////                                        switch (msg.what) {
-////                                            case UPDATE_TEXT:
-////                                                popupWindow.dismiss();
-//////                                        HabitShow();
-////                                                habitArrayList.add(addNewHabit);
-////                                                habitAdapter.notifyDataSetChanged();
-////
-////                                                super.handleMessage(msg);
-////                                        }
-////
-////                                    }
-////
-////
-////                                };
-////
-////
-////                                new Thread(new Runnable() {
-////                                    @Override
-////                                    public void run() {
-////                                        DBConnectHabit dbConnectHabit = new DBConnectHabit();
-////
-////                                        Habit habit=new Habit(0,
-////                                                mAddThings.getText().toString(),
-////                                                0,
-////                                                0,
-////                                                userID);
-////
-////
-////                                        dbConnectHabit.insert(habit);
-////
-////
-////
-////                                        Message msg = new Message();
-////                                        msg.what = UPDATE_TEXT;
-////                                        handler.sendMessage(msg);
-////                                        try {
-////                                            Thread.sleep(100);
-////                                        } catch (InterruptedException e) {
-////                                            Thread.currentThread().interrupt();
-////                                        }
-////                                    }
-////                                }).start();
-////                            }
-////
-////
-//////                        //Temp
-//////                        userID="191001";
-////
-//////                        Log.i(TAG, "UserID has transferred to this activity! ");
-////
-////
-////                        });
-//
-//
-//
-//                        return false;
-//                    }
-//                });
                 return false;
             }
         });
-
-
-
-
     }
-
     @Override
     public int getItemCount() {
         return habitArrayList.size();
     }
-
-
-
-
-
-
-
     //自定义viewhodler
     class myViewHolder extends RecyclerView.ViewHolder {
         @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
@@ -387,34 +232,4 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.myViewHolder
         }
     }
 
-
-
-
-
-//    //自定义viewhodler
-//    class myViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
-//        @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
-//
-//        private final CheckBox mCheckBox;
-//        private final TextView mHabitCountTextView;
-//
-//
-//
-//        public myViewHolder(View itemView) {
-//            super(itemView);
-//            mCheckBox = itemView.findViewById(R.id.habit_checkbox);
-//            mHabitCountTextView = itemView.findViewById(R.id.habit_text_view);
-//            itemView.setOnCreateContextMenuListener(this);
-//
-//
-//
-//
-//        }
-//
-//
-//        @Override
-//        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//            menu.add(0, v.getId(), 0, "Change");
-//        }
-//    }
 }

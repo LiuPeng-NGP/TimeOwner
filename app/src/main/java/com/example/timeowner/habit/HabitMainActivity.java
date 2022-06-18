@@ -52,13 +52,7 @@ public class HabitMainActivity extends Activity {
         setContentView(R.layout.habit_main);
         SharedPreferences sharedPreferences = getSharedPreferences("UserInformation", Context.MODE_PRIVATE);
         userID = sharedPreferences.getString("userID",null);
-
-
         HabitShow();
-
-
-
-
         mFloatingActionButton=findViewById(R.id.floatingActionButton);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,12 +126,7 @@ public class HabitMainActivity extends Activity {
                                         0,
                                         0,
                                         userID);
-
-
                                 dbConnectHabit.insert(habit);
-
-
-
                                 Message msg = new Message();
                                 msg.what = UPDATE_TEXT;
                                 handler.sendMessage(msg);
@@ -148,131 +137,18 @@ public class HabitMainActivity extends Activity {
                                 }
                             }
                         }).start();
-
-//                        if ( mAddThings.getText() != null && mAddThings.getText().equals("")){
-//                            Habit addNewHabit =new Habit(0,
-//                                    mAddThings.getText().toString(),
-//                                    0,
-//                                    0,
-//                                    userID);
-//
-//
-//
-//
-//                            @SuppressLint("HandlerLeak") Handler handler = new Handler() {
-//
-//                                @Override
-//                                public void handleMessage(@NonNull Message msg) {
-//                                    switch (msg.what) {
-//                                        case UPDATE_TEXT:
-//                                            popupWindow.dismiss();
-////                                        HabitShow();
-//                                            habitArrayList.add(addNewHabit);
-//                                            habitAdapter.notifyDataSetChanged();
-//
-//                                            super.handleMessage(msg);
-//                                    }
-//
-//                                }
-//
-//
-//                            };
-//
-//
-//                            new Thread(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    DBConnectHabit dbConnectHabit = new DBConnectHabit();
-//
-//                                    Habit habit=new Habit(0,
-//                                            mAddThings.getText().toString(),
-//                                            0,
-//                                            0,
-//                                            userID);
-//
-//
-//                                    dbConnectHabit.insert(habit);
-//
-//
-//
-//                                    Message msg = new Message();
-//                                    msg.what = UPDATE_TEXT;
-//                                    handler.sendMessage(msg);
-//                                    try {
-//                                        Thread.sleep(100);
-//                                    } catch (InterruptedException e) {
-//                                        Thread.currentThread().interrupt();
-//                                    }
-//                                }
-//                            }).start();
-//                        }else {
-//
-////                            Context context = getApplicationContext();
-////                            CharSequence text = "Please input habit's name!";
-////                            int duration = Toast.LENGTH_SHORT;
-////                            Log.i(TAG, "toast11111111: ");
-////
-////                            Toast toast = Toast.makeText(context
-////                                    , text, duration);
-////                            toast.show();
-//
-//                            popupWindow.dismiss();
-//
-//
-//
-////                            Context context = v.getContext();
-////                            CharSequence text = "Hello toast!";
-////                            int duration = Toast.LENGTH_SHORT;
-////
-////                            Toast toast = Toast.makeText(context, text, duration);
-////                            toast.show();
-//                        }
                     }
-
-
-
-
-//                        //Temp
-//                        userID="191001";
-
-//                        Log.i(TAG, "UserID has transferred to this activity! ");
-
-
-
-
-
-
-
-
                 });
-
-
                 mCancelButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                     popupWindow.dismiss();
                     }
                 });
-
-
             }
         });
-
-
     }
-
-
-
-
-
-
-
-
     private void HabitShow(){
-
-
-
-
         Context context=this;
         @SuppressLint("HandlerLeak") Handler handler = new Handler() {
 
@@ -342,39 +218,9 @@ public class HabitMainActivity extends Activity {
                 };
                 ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
                 itemTouchHelper.attachToRecyclerView(recyclerView); //set swipe to recylcerview
-
-//                recyclerView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-//                    @Override
-//                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//                        menu.add("change");
-////                        SpannableString spanString = new SpannableString(menu.getItem(0).getTitle().toString());
-////                        int end = spanString.length();
-////                        spanString.setSpan(new RelativeSizeSpan(0.75f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-////
-////                        menu.getItem(0).setTitle(spanString);
-//
-//                        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//                            @Override
-//                            public boolean onMenuItemClick(MenuItem item) {
-//
-//
-//
-//
-//
-//
-//                                return true;
-//                            }
-//                        });
-//                    }
-//                });
-
-
                 super.handleMessage(msg);
-
             }
             }
-
-
         };
 
 
@@ -396,12 +242,5 @@ public class HabitMainActivity extends Activity {
             }
         }).start();
     }
-
-
-
-
-
-
-
 }
 
